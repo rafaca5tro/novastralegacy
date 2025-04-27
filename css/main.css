@@ -1,0 +1,1024 @@
+/* ==========================================================================
+   Novastra Legacy Website Styles - Main CSS File (Revamped Dark Theme)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Configuration and Base Styles
+   -------------------------------------------------------------------------- */
+
+/* CSS Variables (Refined for Moody, Premium, Soft-Lit Dark Theme) */
+:root {
+    /* Core Colors - Deeper blacks, softer beige, refined accents */
+    --color-dark: #121212; /* Slightly deeper dark */
+    --color-black: #000000;
+    --color-beige: #D8CFC6; /* Slightly softer beige */
+    --color-orange: #E85A00; /* Slightly desaturated orange for premium feel */
+    --color-yellow: #E0A800; /* Desaturated yellow */
+    --color-orange-hover: #D05000;
+    --color-yellow-hover: #C89600;
+
+    /* Grays & Whites - Adjusted for dark theme */
+    --color-gray-darker: #181818; /* Background for subtle contrast */
+    --color-gray-dark: #3a3a3a; /* Dark gray for secondary text/borders */
+    --color-gray-medium: #555; /* Medium gray for inactive/placeholder elements */
+    --color-gray-light: #282828; /* Light gray in dark theme context */
+    --color-white: #FFFFFF;
+
+    /* Shadows & Overlays - Softer glows, defined shadows */
+    --color-shadow-light: rgba(232, 90, 0, 0.35); /* Softer orange glow */
+    --color-shadow-medium: rgba(0, 0, 0, 0.5); /* Slightly stronger shadow */
+    --color-shadow-dark: rgba(0, 0, 0, 0.35);
+
+    /* Overlays - Maintain readability */
+    --color-overlay-dark: rgba(0, 0, 0, 0.8); /* Slightly less opaque */
+    --color-overlay-medium: rgba(10, 10, 10, 0.75); /* Darker overlay for quote */
+    --color-overlay-light: rgba(24, 24, 24, 0.8); /* Overlay for cards - more opaque */
+
+    /* Borders - Subtle */
+    --color-border-light: rgba(232, 90, 0, 0.15); /* Very subtle orange border */
+    --color-border-medium: rgba(232, 90, 0, 0.4); /* Subtle orange border active */
+    --color-border-focus: rgba(232, 90, 0, 0.5); /* Clearer focus ring */
+
+    /* Fonts - Keep as per branding */
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Playfair Display', serif;
+
+    /* Gradients - Use refined accent colors */
+    --gradient-primary: linear-gradient(90deg, var(--color-orange), var(--color-yellow));
+    --gradient-primary-hover: linear-gradient(90deg, var(--color-orange-hover), var(--color-yellow-hover));
+    --gradient-icon: linear-gradient(90deg, var(--color-orange), var(--color-yellow));
+
+    /* Global Transition */
+    --transition-smooth: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    /* Header Height */
+    --header-height: 4.5rem;
+}
+
+/* Basic Reset & Body Styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-black); /* Base background */
+    color: var(--color-beige);
+    font-family: var(--font-primary);
+    line-height: 1.7; /* Slightly increased line height for readability */
+    margin: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings - Keep font, adjust spacing/color if needed */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    color: var(--color-beige);
+    margin-top: 0;
+    margin-bottom: 1.25rem; /* Consistent margin */
+    line-height: 1.3;
+    letter-spacing: 0.5px; /* Subtle letter spacing */
+}
+
+/* Paragraphs - Enhance readability */
+p {
+    color: var(--color-beige);
+    opacity: 0.9; /* Slightly softer text */
+    font-family: var(--font-primary);
+    margin-bottom: 1.25rem;
+}
+
+/* Links - Subtle underline */
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+a:hover {
+    color: var(--color-orange);
+    opacity: 0.85;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px; /* Optional: slight rounding */
+}
+
+/* Screen Reader Only Text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Custom Scrollbar - Dark theme */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-gray-darker);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-primary);
+  border-radius: 5px;
+  border: 2px solid var(--color-gray-darker); /* Match track background */
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gradient-primary-hover);
+}
+
+/* --------------------------------------------------------------------------
+   2. Layout & Container
+   -------------------------------------------------------------------------- */
+
+/* Container - No changes needed */
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+@media (min-width: 640px) { .container { padding-left: 1.5rem; padding-right: 1.5rem; } }
+@media (min-width: 1024px) { .container { padding-left: 2rem; padding-right: 2rem; } }
+
+/* Sections - Standard padding */
+section {
+    padding-top: 6rem; /* Increased padding */
+    padding-bottom: 6rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Specific Section Backgrounds & Overlays */
+.section-dark {
+    background-color: var(--color-dark); /* Use variable for consistency */
+    /* Keep image overlay, adjust overlay color if needed */
+    background: linear-gradient(var(--color-overlay-dark), var(--color-overlay-dark)),
+                url('https://images.unsplash.com/photo-1517649763966-2228d02d6565?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+.section-dark::before {
+    /* Soft radial glow */
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%; /* Wider glow */
+    height: 90%;
+    background: radial-gradient(circle, rgba(232, 90, 0, 0.08) 0%, transparent 65%); /* Softer glow */
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    pointer-events: none;
+}
+/* Ensure content is above glow */
+.section-dark > .container {
+    position: relative;
+    z-index: 1;
+}
+/* Ensure text contrast in dark sections */
+.section-dark h1, .section-dark h2, .section-dark h3, .section-dark h4, .section-dark p, .section-dark a, .section-dark blockquote, .section-dark cite, .section-dark li, .section-dark label {
+    color: var(--color-beige);
+}
+.quote-section, .network-section, .what-we-do-section {
+    background-color: var(--color-black); /* Solid black for contrast */
+}
+
+/* Scroll Margin Top */
+.scroll-mt-16 {
+    scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+/* --------------------------------------------------------------------------
+   3. Header & Navigation (Maintain structure, refine visuals)
+   -------------------------------------------------------------------------- */
+
+/* Header Container - Stickiness and background are handled by Tailwind/HTML */
+header {
+    background-color: rgba(0, 0, 0, 0.85); /* Slightly transparent sticky header */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+}
+
+/* Logo */
+header img {
+    /* Tailwind h-12 */
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+header a:hover img {
+    filter: brightness(1.1); /* Slight brightness on hover */
+}
+
+/* Navigation Links (Desktop) */
+.nav-link {
+    font-weight: 500;
+    color: var(--color-beige);
+    transition: var(--transition-smooth);
+    padding: 0.5rem 0;
+    position: relative;
+    opacity: 0.9;
+}
+.nav-link:hover {
+    color: var(--color-orange);
+    opacity: 1;
+}
+.nav-link::after { /* Subtle underline effect */
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Position below text */
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-orange);
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 60%; /* Underline only partway */
+}
+
+/* Mobile Menu Button */
+header button#mobile-menu-toggle {
+    /* Tailwind text-beige, md:hidden */
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 51;
+    transition: transform 0.2s ease;
+}
+header button#mobile-menu-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Mobile Navigation Menu */
+#mobile-menu {
+    /* Tailwind: hidden md:hidden absolute right-4 mt-2 w-48 rounded-lg shadow-xl p-4 flex flex-col space-y-2 z-40 */
+    background-color: var(--color-gray-darker); /* Darker background for menu */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.nav-link-mobile {
+    display: block;
+    font-weight: 500;
+    padding: 0.6rem 0.75rem; /* Adjusted padding */
+    color: var(--color-beige);
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 0.35rem;
+    opacity: 0.9;
+}
+.nav-link-mobile:hover {
+    color: var(--color-white); /* Brighter hover for links */
+    background-color: rgba(232, 90, 0, 0.2); /* Subtle orange background */
+    opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   4. Footer (Maintain structure, refine visuals)
+   -------------------------------------------------------------------------- */
+footer.section-dark {
+    background: var(--color-black); /* Solid black footer background */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Separator line */
+}
+footer.section-dark::before {
+    display: none; /* Remove footer glow if not desired */
+}
+
+/* Footer Logo & Description */
+footer .md\\:w-1\\/3 p {
+    opacity: 0.8; /* Slightly softer footer description */
+    font-size: 0.9rem;
+}
+
+/* Footer Headings */
+.footer-heading {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    color: var(--color-beige);
+    margin-bottom: 1.25rem; /* Increased spacing */
+    font-size: 1.1rem; /* Slightly smaller footer heading */
+    text-transform: uppercase; /* Uppercase for distinction */
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+/* Footer Navigation Links */
+.footer-nav-link {
+    font-family: var(--font-primary);
+    color: var(--color-beige);
+    transition: var(--transition-smooth);
+    display: inline-block;
+    padding: 0.2rem 0;
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+.footer-nav-link:hover {
+    color: var(--color-orange);
+    opacity: 1;
+    transform: translateX(3px); /* Subtle shift on hover */
+}
+
+/* Footer Social Media Links */
+.footer-social-link svg {
+    fill: var(--color-beige); /* Use beige for icons initially */
+    transition: var(--transition-smooth);
+    height: 1.4rem; /* Slightly smaller icons */
+    width: 1.4rem;
+    opacity: 0.7;
+}
+.footer-social-link:hover svg {
+    fill: var(--color-orange); /* Orange fill on hover */
+    transform: scale(1.1) translateY(-2px); /* Scale and lift */
+    opacity: 1;
+}
+
+/* Footer Copyright */
+footer .border-t {
+    border-color: rgba(255, 255, 255, 0.1); /* Match other separators */
+}
+footer .text-sm {
+    opacity: 0.7; /* Softer copyright */
+}
+
+/* --------------------------------------------------------------------------
+   5. Buttons & CTAs (Refined premium feel)
+   -------------------------------------------------------------------------- */
+
+/* Base Button Styles */
+.btn, .btn-primary, .btn-secondary {
+    font-weight: 600; /* Slightly bolder */
+    padding: 0.85rem 2.25rem; /* Larger padding */
+    border-radius: 30px; /* Smoother pill shape */
+    transition: var(--transition-smooth);
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    line-height: 1.5;
+    font-size: 0.95rem; /* Slightly smaller text */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 0.8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Base shadow */
+}
+
+/* Primary Button */
+.btn-primary {
+    background: var(--gradient-primary);
+    color: var(--color-white);
+    box-shadow: 0 6px 15px rgba(232, 90, 0, 0.2); /* Orange glow shadow */
+}
+.btn-primary:hover {
+    background: var(--gradient-primary-hover);
+    transform: scale(1.03) translateY(-3px); /* Adjusted hover effect */
+    box-shadow: 0 10px 25px rgba(232, 90, 0, 0.3); /* Enhanced shadow */
+    filter: brightness(1.1);
+}
+
+/* Secondary Button */
+.btn-secondary {
+    background: transparent;
+    border-color: var(--color-orange);
+    color: var(--color-orange); /* Orange text */
+}
+.btn-secondary:hover {
+    background: var(--color-orange);
+    color: var(--color-white); /* White text on hover */
+    border-color: var(--color-orange);
+    transform: scale(1.03) translateY(-3px);
+    box-shadow: 0 10px 25px rgba(232, 90, 0, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   6. Components & Modules (Moody & Premium Enhancements)
+   -------------------------------------------------------------------------- */
+
+/* Image Frame - More integrated feel */
+.image-frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem; /* Slightly reduced radius */
+    border: 1px solid var(--color-gray-dark); /* Subtle border */
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5), 0 2px 5px rgba(0,0,0,0.2); /* Inner shadow */
+    transition: var(--transition-smooth);
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 */
+    background-color: var(--color-gray-darker); /* Darker placeholder */
+}
+.image-frame img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease;
+    opacity: 0.9; /* Slightly muted image */
+    border-radius: 0.75rem; /* Match parent */
+}
+.image-frame:hover {
+    border-color: var(--color-border-medium);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4), 0 5px 15px rgba(0,0,0,0.3);
+}
+.image-frame:hover img {
+    transform: scale(1.05); /* Subtle zoom */
+    opacity: 1; /* Full opacity on hover */
+}
+/* Recommendation: Use high-quality, atmospheric images with soft lighting */
+/* Consider adding a subtle ::after overlay on hover if needed */
+
+/* Quote Component - Enhanced mood */
+.quote-container {
+    position: relative;
+    /* Keep background image/attachment */
+    background: url('https://images.unsplash.com/photo-1517649763966-2228d02d6565?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    background-attachment: fixed;
+    border-radius: 0.75rem;
+    padding: 3rem 2.5rem; /* More padding */
+    color: var(--color-beige);
+    background-color: rgba(10, 10, 10, 0.3); /* Base color */
+    border: 1px solid transparent;
+    animation: borderFadeIn 2s ease-in-out 0.5s forwards;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 56rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+.quote-container::before {
+    /* Darker overlay for moody feel */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.8));
+    border-radius: 0.75rem; /* Match parent */
+    z-index: 0;
+}
+.quote-container blockquote {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    font-size: 1.5rem; /* Slightly larger */
+    line-height: 1.8; /* More spacing */
+    font-style: italic;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Subtle text shadow */
+}
+.quote-text { /* Word animation handled by JS */
+    display: inline-block;
+}
+.quote-container cite {
+    display: block;
+    margin-top: 1.5rem; /* More space */
+    font-size: 1rem;
+    color: var(--color-orange);
+    font-style: normal;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+/* What We Do / Network Grid Items - Elevated card design */
+.what-we-do-grid, .network-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem; /* Increased gap */
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.what-we-do-item, .network-item {
+    background: var(--color-overlay-light); /* Use overlay color var */
+    border: 1px solid var(--color-border-light);
+    border-radius: 0.75rem;
+    padding: 2rem 1.5rem; /* Adjusted padding */
+    text-align: center;
+    transition: var(--transition-smooth);
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.what-we-do-item:hover, .network-item:hover {
+    transform: translateY(-8px) scale(1.02); /* Lift and scale slightly */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border-color: var(--color-border-medium);
+    background: rgba(30, 30, 30, 0.9); /* Slightly lighter background on hover */
+}
+.item-heading {
+    font-family: var(--font-secondary);
+    font-size: 1.4rem; /* Adjusted size */
+    font-weight: 700;
+    color: var(--color-beige);
+    margin-bottom: 0.75rem; /* Reduced margin */
+}
+.item-text {
+    font-family: var(--font-primary);
+    color: var(--color-beige);
+    font-size: 0.95rem; /* Slightly smaller text */
+    line-height: 1.7;
+    opacity: 0.85; /* Slightly softer text */
+    flex-grow: 1;
+    margin-bottom: 0; /* Remove bottom margin if it's the last element */
+}
+
+/* Sports Properties Carousel - Subtle refinements */
+.sports-carousel {
+    position: relative;
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 2rem auto 0; /* Add margin top */
+    padding: 0 3rem; /* More space for buttons */
+}
+.sports-carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother transition */
+    will-change: transform;
+}
+.sports-carousel-item {
+    flex: 0 0 auto;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0.5rem; /* Adjust padding */
+}
+.sports-carousel-item img {
+    max-width: 90%; /* Slightly smaller logos */
+    height: auto;
+    filter: grayscale(80%) brightness(0.9) opacity(0.7); /* More desaturated, dimmer */
+    transition: var(--transition-smooth);
+}
+.sports-carousel-item:hover img,
+.sports-carousel-item:focus img { /* Add focus style */
+    filter: grayscale(0%) brightness(1) opacity(1); /* Full color */
+}
+/* Buttons - Softer appearance */
+.sports-carousel-prev, .sports-carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(232, 90, 0, 0.5); /* Semi-transparent orange */
+    color: var(--color-white);
+    padding: 0.7rem;
+    border-radius: 50%;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    z-index: 10;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+}
+.sports-carousel-prev svg, .sports-carousel-next svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.sports-carousel-prev:hover, .sports-carousel-next:hover {
+    background: var(--color-orange); /* Solid orange on hover */
+    transform: translateY(-50%) scale(1.1);
+    opacity: 1;
+}
+.sports-carousel-prev:disabled, .sports-carousel-next:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: translateY(-50%);
+    background: var(--color-gray-dark);
+}
+.sports-carousel-prev { left: 0.5rem; } /* Position adjusted */
+.sports-carousel-next { right: 0.5rem; }
+/* Dots - Minimalist */
+.sports-carousel-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem; /* More space */
+    position: relative;
+    z-index: 10;
+    padding: 0;
+    list-style: none;
+    height: 20px;
+}
+.sports-dot {
+    width: 8px; /* Smaller dots */
+    height: 8px;
+    background: var(--color-gray-medium);
+    border-radius: 50%;
+    margin: 0 5px; /* Closer spacing */
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    border: none;
+    padding: 0;
+    opacity: 0.6;
+}
+.sports-dot.active {
+    background: var(--color-orange);
+    transform: scale(1.4); /* Larger active dot */
+    opacity: 1;
+}
+.sports-dot:focus { outline: none; }
+.sports-dot:focus-visible {
+    outline: 2px solid var(--color-orange);
+    outline-offset: 3px;
+}
+
+/* Contact Form Styles - Premium inputs */
+.card-bg {
+    background-color: rgba(18, 18, 18, 0.85); /* Darker card */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 0.75rem;
+    padding: 3rem; /* Increased padding */
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+}
+.form-label {
+    display: block;
+    font-size: 0.8rem; /* Smaller label */
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: var(--color-beige);
+    font-family: var(--font-primary);
+    text-transform: uppercase; /* Uppercase labels */
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+}
+.form-input, .form-textarea {
+    background-color: rgba(255, 255, 255, 0.05); /* Very subtle light background */
+    color: var(--color-beige); /* Light text */
+    line-height: 1.6;
+    transition: var(--transition-smooth);
+    border: 1px solid var(--color-gray-dark); /* Dark gray border */
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    padding: 0.9rem 1.1rem; /* Adjusted padding */
+    border-radius: 0.5rem;
+    width: 100%;
+    appearance: none; /* Remove default styling */
+}
+.form-input::placeholder, .form-textarea::placeholder {
+    color: var(--color-gray-medium);
+    opacity: 1;
+}
+.form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: var(--color-orange);
+    background-color: rgba(255, 255, 255, 0.08); /* Slightly lighter on focus */
+    box-shadow: 0 0 0 3px var(--color-border-focus);
+}
+.form-textarea {
+    resize: vertical;
+    min-height: 100px; /* Taller textarea */
+}
+
+/* Email Icon & Link (Contact Section) */
+.email-icon-gradient-bg {
+    background: var(--gradient-icon);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 0.7rem; /* Adjust padding */
+    margin-right: 1rem; /* More space */
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(232, 90, 0, 0.25);
+}
+.email-icon-gradient-bg svg {
+    stroke: var(--color-white);
+    height: 1.6rem; /* Adjusted size */
+    width: 1.6rem;
+}
+.contact-link {
+    color: var(--color-beige);
+    transition: var(--transition-smooth);
+    text-decoration: none; /* Remove underline */
+    font-size: 1.1rem;
+    word-break: break-all;
+    position: relative; /* For potential underline effect */
+    opacity: 0.9;
+}
+.contact-link::after { /* Underline effect on hover */
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-orange);
+    transition: width 0.3s ease;
+}
+.contact-link:hover {
+    color: var(--color-orange);
+    opacity: 1;
+}
+.contact-link:hover::after {
+    width: 100%;
+}
+/* Ensure alignment */
+.contact-section .flex.items-center {
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+/* Section Headings - Refine styles */
+.section-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: var(--font-secondary);
+    color: var(--color-beige);
+    line-height: 1.25;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Subtle heading shadow */
+}
+.section-subheading {
+    font-size: 1.1rem; /* Slightly smaller */
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.75rem; /* Adjust spacing */
+    font-family: var(--font-primary);
+    color: var(--color-beige);
+    opacity: 0.8; /* Softer subheading */
+    line-height: 1.8;
+}
+@media (min-width: 768px) {
+    .section-heading { font-size: 2.8rem; } /* Adjusted tablet/desktop size */
+    .section-subheading { font-size: 1.2rem; }
+}
+
+
+/* --------------------------------------------------------------------------
+   7. Animations & Transitions (Smoother easing)
+   -------------------------------------------------------------------------- */
+:root {
+    --ease-out-cubic: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s var(--ease-out-cubic) forwards; /* Smoother fade */
+}
+
+/* Reveal on Scroll Animation */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97); /* Adjusted start */
+    transition: opacity 0.8s var(--ease-out-cubic), transform 0.8s var(--ease-out-cubic); /* Smoother timing */
+    will-change: opacity, transform;
+}
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+/* Staggered Delay Classes - Adjust timing if needed */
+.reveal-delay-1 { transition-delay: 0.15s; }
+.reveal-delay-2 { transition-delay: 0.30s; }
+.reveal-delay-3 { transition-delay: 0.45s; }
+.reveal-delay-4 { transition-delay: 0.60s; }
+
+/* Quote Text Word Animation - Smoother */
+@keyframes fadeInWord {
+    0% { opacity: 0; transform: translateY(12px); filter: blur(2px); }
+    100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+/* Animation applied by JS, ensure timing is adjusted in JS if needed */
+
+/* Quote Container Border Animation - Subtle */
+@keyframes borderFadeIn {
+    0% { border-color: transparent; transform: scale(0.99); opacity: 0.8; }
+    100% { border-color: var(--color-border-medium); transform: scale(1); opacity: 1; }
+}
+/* Animation delay handled in quote-container style */
+
+/* Hero Logo Bounce Animation - More subtle */
+@keyframes subtleBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); } /* Reduced height */
+}
+.hero-logo-bounce {
+    animation: subtleBounce 4s ease-in-out infinite; /* Slower animation */
+}
+
+/* Consolidate other animations if they exist */
+/* (Keep existing logoEntrance, flameFlicker, slideUp, etc. if used) */
+/* Example: Adjust slideUp */
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+[data-animation="slide-up"] { animation: slideUp 0.9s var(--ease-out-cubic) forwards; opacity: 0; }
+
+/* Ensure animation delays are consistently applied */
+.animation-delay-100 { animation-delay: 0.1s; }
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-300 { animation-delay: 0.3s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+.animation-delay-500 { animation-delay: 0.5s; }
+
+/* --------------------------------------------------------------------------
+   8. Utilities (Keep existing text utilities)
+   -------------------------------------------------------------------------- */
+.text-beige { color: var(--color-beige) !important; }
+.text-orange-500 { color: var(--color-orange) !important; } /* Use updated orange */
+.text-dark { color: var(--color-dark) !important; }
+.text-white { color: var(--color-white) !important; }
+
+/* --------------------------------------------------------------------------
+   9. Responsive Design (Integrate from styles-responsive.css & main.css)
+   -------------------------------------------------------------------------- */
+
+/* Mobile Devices (Up to 767px) */
+@media (max-width: 767px) {
+    /* Fixed background */
+    .section-dark, .quote-container { background-attachment: scroll; }
+
+    /* Padding */
+    section { padding-top: 4rem; padding-bottom: 4rem; }
+    .container { padding-left: 1rem; padding-right: 1rem; }
+
+    /* Typography */
+    h1 { font-size: 2rem; line-height: 1.3; }
+    h2, .section-heading { font-size: 1.75rem; }
+    h3, .item-heading { font-size: 1.3rem; }
+    .section-subheading { font-size: 1rem; }
+
+    /* Hero Section */
+    .hero-section { min-height: auto; padding-top: 6rem; padding-bottom: 4rem; }
+    .hero-section h1 { font-size: 2.25rem; } /* Adjust hero H1 specifically */
+    .hero-section .text-xl { font-size: 1.05rem; }
+    .hero-section .sm\\:flex-row { /* Stack buttons */
+        flex-direction: column; align-items: center; width: 100%;
+        max-width: 300px; margin-left: auto; margin-right: auto;
+        space-y: 1rem; space-x: 0;
+    }
+    .hero-section .btn { width: 100%; padding: 0.75rem 1.5rem; font-size: 0.9rem; }
+
+    /* Carousel */
+    .sports-carousel { padding: 0 0.5rem; }
+    .sports-carousel-prev, .sports-carousel-next {
+        bottom: -3rem; /* Position below */
+        transform: translateY(0) scale(0.9); /* Slightly smaller */
+        padding: 0.6rem;
+    }
+     .sports-carousel-prev { left: calc(50% - 40px); }
+     .sports-carousel-next { right: calc(50% - 40px); }
+    .sports-carousel-dots { margin-top: 1rem; margin-bottom: 4rem; }
+
+    /* Grids */
+    .what-we-do-grid, .network-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .what-we-do-item, .network-item { padding: 1.5rem 1rem; }
+
+    /* Footer */
+    footer .md\\:flex-row { flex-direction: column; align-items: center; text-align: center; }
+    footer .md\\:w-1\\/3, footer .md\\:w-1\\/2 { width: 100%; margin-bottom: 2rem; }
+    footer .grid { grid-template-columns: 1fr; text-align: center; }
+    footer .footer-heading { margin-top: 1rem; }
+    footer .flex.space-x-4 { justify-content: center; }
+
+    /* Contact Form */
+    .card-bg { padding: 1.5rem; }
+    .form-input, .form-textarea { padding: 0.8rem 1rem; }
+
+    /* General Mobile helpers from styles-responsive.css */
+    .mobile-stack { flex-direction: column !important; }
+    .mobile-full-width { width: 100% !important; }
+    .mobile-center { text-align: center !important; }
+    .mobile-hidden { display: none !important; }
+    .mobile-mt-4 { margin-top: 1rem !important; }
+    .mobile-mb-4 { margin-bottom: 1rem !important; }
+    .animation-delay-mobile { animation-delay: 0.1s !important; }
+    header img { height: 2.5rem !important; } /* Mobile logo size */
+}
+
+/* Tablet Devices (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Typography */
+    h1 { font-size: 3rem; }
+    .hero-section h1 { font-size: 3.5rem; }
+    h2, .section-heading { font-size: 2.25rem; }
+    .section-subheading { font-size: 1.15rem; }
+
+    /* Grids */
+    .what-we-do-grid, .network-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
+
+    /* Carousel */
+    .sports-carousel { padding: 0 1.5rem; }
+    .sports-carousel-prev { left: 0rem; }
+    .sports-carousel-next { right: 0rem; }
+
+    /* General Tablet helpers from styles-responsive.css */
+    .tablet-stack { flex-direction: column !important; }
+    .tablet-full-width { width: 100% !important; }
+    .tablet-center { text-align: center !important; }
+    .tablet-mt-4 { margin-top: 1rem !important; }
+    .tablet-mb-4 { margin-bottom: 1rem !important; }
+}
+
+/* --------------------------------------------------------------------------
+   10. Print Styles & Accessibility (Keep existing rules, adjust colors if needed)
+   -------------------------------------------------------------------------- */
+
+/* Print Styles (Copied from original main.css) */
+@media print {
+    body {
+        background-color: var(--color-white); color: var(--color-black);
+        font-size: 11pt; font-family: sans-serif;
+    }
+    header, footer, .btn, .no-print, .sports-carousel-prev, .sports-carousel-next, .sports-carousel-dots, #mobile-menu-toggle, .hero-logo-bounce {
+        display: none !important;
+    }
+    section {
+        padding: 1rem 0 !important; background: none !important;
+        border: none !important; box-shadow: none !important; margin-top: 0 !important;
+    }
+    .section-dark::before, .quote-container::before { display: none; }
+    .container { max-width: 100%; padding: 0 1cm !important; }
+    a { color: var(--color-black) !important; text-decoration: underline !important; }
+    a[href^="http"]::after, a[href^="mailto"]::after {
+        content: " (" attr(href) ")"; font-size: 9pt; word-break: break-all;
+    }
+    img {
+        max-width: 250px !important; filter: grayscale(100%) !important;
+        border: 1px solid #ccc !important; page-break-inside: avoid !important;
+    }
+     h1,h2,h3,h4,h5,h6,p,li,label,blockquote,cite {
+         color: var(--color-black) !important; font-family: sans-serif !important;
+         page-break-after: avoid !important; page-break-inside: avoid !important;
+     }
+    .what-we-do-grid, .network-grid {
+        grid-template-columns: 1fr !important; page-break-inside: avoid !important;
+    }
+    .what-we-do-item, .network-item {
+        border: 1px solid #ccc !important; background: none !important;
+        box-shadow: none !important; page-break-inside: avoid !important;
+    }
+    .sports-carousel-track { display: none !important; }
+    .card-bg {
+        border: 1px solid #ccc !important; background: none !important;
+        box-shadow: none !important; padding: 1rem !important;
+    }
+    .form-input, .form-textarea { border: 1px solid #888 !important; }
+}
+
+/* Accessibility: High Contrast Mode (Copied from original main.css) */
+@media (prefers-contrast: more) {
+    body { background-color: #fff; color: #000; }
+    h1,h2,h3,h4,h5,h6,p,a,li,label,blockquote,cite { color: #000 !important; text-shadow: none !important; }
+    .section-dark, .quote-section, .network-section, .what-we-do-section, header, footer { background: #fff !important; }
+    .section-dark::before { display: none; }
+    .btn-primary, .btn-secondary, .email-icon-gradient-bg {
+        background: #000 !important; color: #fff !important; border: 2px solid #000 !important;
+    }
+    .image-frame, .what-we-do-item, .network-item, .quote-container, .card-bg {
+        border: 2px solid #000 !important; background: #fff !important; box-shadow: none !important;
+    }
+    .form-input, .form-textarea {
+        border: 2px solid #000 !important; background: #fff !important; color: #000 !important;
+    }
+    .form-input:focus, .form-textarea:focus { box-shadow: 0 0 0 3px #000 !important; }
+    .footer-social-link svg { fill: #000 !important; }
+    .sports-dot { background: #000 !important; border: 1px solid #000; }
+    .sports-dot.active { outline: 2px solid #000; background: #555 !important;}
+    img { filter: contrast(150%); }
+    .email-icon-gradient-bg svg { stroke: #fff !important; }
+    .nav-link, .nav-link-mobile, .footer-nav-link, .contact-link {
+         color: #000 !important; text-decoration: underline !important;
+    }
+}
+
+/* Accessibility: Reduced Motion (Copied from original main.css) */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto !important; }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important; animation-delay: 0ms !important;
+        transition-delay: 0ms !important;
+    }
+    .hero-logo-bounce, .flame-flicker { animation: none !important; }
+    .reveal-on-scroll { opacity: 1; transform: none; }
+    *:hover, *:focus, *:active { transition-duration: 0.01ms !important; }
+}

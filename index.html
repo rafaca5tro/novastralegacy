@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Novastra Legacy - Elevate Your Athletic Legacy</title>
+    <meta name="description" content="Novastra Legacy: Strategic guidance for athletes, clubs, leagues, and brands to build enduring legacies with cutting-edge technology.">
+
+    <!-- Favicon Links -->
+    <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
+    <!-- For modern browsers supporting PNG -->
+    <link rel="icon" type="image/png" href="favicon_io/favicon.png" sizes="32x32">
+    <!-- For Apple devices (Touch Icon) -->
+    <link rel="apple-touch-icon" href="favicon_io/apple-touch-icon.png">
+    <!-- For Windows Metro tiles -->
+    <meta name="msapplication-TileImage" content="favicon_io/ms-icon-144x144.png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-dark: #1A1A1A;
+            --color-beige: #E8E1D9;
+            --color-orange: #FF6200;
+            --color-yellow: #FFC107;
+            --color-orange-hover: #E55B00;
+            --color-gray-dark: #4A4A4A;
+            --color-white: #FFFFFF;
+            --color-black: #000000;
+        }
+        body { 
+            background-color: var(--color-black); 
+            color: var(--color-beige); 
+            font-family: 'Montserrat', sans-serif; 
+            overflow-x: hidden; 
+            margin: 0; 
+        }
+        h1, h2, h3, h4 { 
+            font-family: 'Playfair Display', serif; 
+            font-weight: 700; 
+            color: var(--color-beige); 
+        }
+        p { 
+            color: var(--color-beige); 
+            font-family: 'Montserrat', sans-serif; 
+        }
+        .btn-primary { 
+            background: linear-gradient(90deg, var(--color-orange), var(--color-yellow)); 
+            color: var(--color-white); 
+            font-weight: bold; 
+            padding: 0.75rem 2rem; 
+            border-radius: 9999px; 
+            transition: all 0.3s ease; 
+            display: inline-block; 
+        }
+        .btn-primary:hover { 
+            background: linear-gradient(90deg, var(--color-orange-hover), #FFB300); 
+            transform: scale(1.05); 
+            filter: brightness(1.1); 
+        }
+        .btn-secondary { 
+            background: transparent; 
+            border: 2px solid var(--color-orange); 
+            color: var(--color-beige); 
+            font-weight: bold; 
+            padding: 0.75rem 2rem; 
+            border-radius: 9999px; 
+            transition: all 0.3s ease; 
+            display: inline-block; 
+        }
+        .btn-secondary:hover { 
+            background: linear-gradient(90deg, var(--color-orange), var(--color-yellow)); 
+            color: var(--color-white); 
+        }
+        .section-dark { 
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
+                       url('https://images.unsplash.com/photo-1517649763966-2228d02d6565?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') 
+                       no-repeat center center/cover; 
+            background-attachment: fixed; 
+            position: relative; 
+            overflow: hidden; 
+        }
+        .section-dark::before { 
+            content: ''; 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            width: 80%; 
+            height: 80%; 
+            background: radial-gradient(circle, rgba(255, 98, 0, 0.1) 0%, transparent 70%); 
+            transform: translate(-50%, -50%); 
+            z-index: 0; 
+        }
+        .section-dark h2, .section-dark h3, .section-dark h4, .section-dark p { 
+            color: var(--color-beige); 
+            position: relative; 
+            z-index: 1; 
+        }
+        #why-novastra, #services, #network { 
+            background: var(--color-white); 
+        }
+        #why-novastra h2, #why-novastra p,
+        #services h2, #services p,
+        #network h2, #network p { 
+            color: var(--color-black); 
+        }
+        .image-frame { 
+            position: relative; 
+            overflow: hidden; 
+            border-radius: 50%; 
+            border: 2px solid var(--color-orange); 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+            transition: all 0.5s ease; 
+            width: 100%; 
+            max-width: 300px; 
+            margin: 0 auto; 
+            padding-top: 100%; 
+            background: rgba(255, 98, 0, 0.1); 
+        }
+        .image-frame img { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.5s ease, opacity 0.5s ease; 
+            opacity: 0.8; 
+        }
+        .image-frame:hover { 
+            box-shadow: 0 0 20px rgba(255, 98, 0, 0.5); 
+            transform: scale(1.05); 
+        }
+        .image-frame:hover img { 
+            transform: scale(1.1); 
+            opacity: 1; 
+        }
+        .what-we-do-section { 
+            background: var(--color-black); 
+            padding: 5rem 0; 
+        }
+        .what-we-do-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2rem; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        .what-we-do-item { 
+            background: rgba(0, 0, 0, 0.5); 
+            border: 1px solid rgba(255, 98, 0, 0.2); 
+            border-radius: 1rem; 
+            padding: 2.5rem; 
+            text-align: center; 
+            transition: all 0.3s ease; 
+            position: relative; 
+            z-index: 1; 
+        }
+        .what-we-do-item:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+        }
+        .network-section { 
+            background: var(--color-white); 
+            padding: 5rem 0; 
+        }
+        .network-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2.5rem; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        .network-item { 
+            background: linear-gradient(145deg, #f0f0f0, #d0d0d0); 
+            border: none; 
+            border-radius: 1.5rem; 
+            padding: 2.5rem; 
+            text-align: center; 
+            transition: all 0.4s ease; 
+            position: relative; 
+            z-index: 1; 
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); 
+        }
+        .network-item:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); 
+            background: linear-gradient(145deg, #ffffff, #e0e0e0); 
+        }
+        .network-item h3 { 
+            color: var(--color-black); 
+            font-size: 1.75rem; 
+            margin-bottom: 1rem; 
+            transition: color 0.3s ease; 
+        }
+        .network-item:hover h3 { 
+            color: var(--color-orange); 
+        }
+        .network-item p { 
+            color: #666; 
+            font-size: 1rem; 
+            line-height: 1.6; 
+        }
+        .sports-carousel { 
+            position: relative; 
+            overflow: hidden; 
+            max-width: 800px; 
+            margin: 2rem auto; 
+        }
+        .sports-carousel-track { 
+            display: flex; 
+            animation: autoScroll 20s linear infinite; 
+        }
+        .sports-carousel-item { 
+            flex-shrink: 0; 
+            width: 100px; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 0.5rem; 
+            transition: all 0.3s ease; 
+        }
+        .sports-carousel-item img { 
+            max-width: 100%; 
+            height: auto; 
+            opacity: 0.7; 
+            transition: all 0.3s ease; 
+            filter: grayscale(50%); 
+        }
+        .sports-carousel-item.active img { 
+            opacity: 1; 
+            transform: scale(1.2); 
+            filter: grayscale(0%); 
+        }
+        @keyframes autoScroll { 
+            0% { transform: translateX(0); } 
+            100% { transform: translateX(-50%); } 
+        }
+        .sports-carousel:hover .sports-carousel-track { 
+            animation-play-state: paused; 
+        }
+        .fade-in { 
+            opacity: 0; 
+            animation: fadeIn 1s ease-in-out forwards; 
+        }
+        @keyframes fadeIn { 
+            from { opacity: 0; } 
+            to { opacity: 1; } 
+        }
+        .reveal-on-scroll { 
+            opacity: 0; 
+            transform: translateY(20px) scale(0.95); 
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+        }
+        .reveal-on-scroll.revealed { 
+            opacity: 1; 
+            transform: translateY(0) scale(1); 
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        footer { 
+            background: var(--color-black); 
+            padding: 2rem 0; 
+            border-top: 1px solid rgba(255, 98, 0, 0.1); 
+        }
+        footer .container { 
+            max-width: 1200px; 
+        }
+        footer img { 
+            height: 2rem; 
+            margin-bottom: 1rem; 
+        }
+        footer p, footer a { 
+            font-size: 0.9rem; 
+            margin: 0.5rem 0; 
+            opacity: 0.9; 
+        }
+        footer a:hover { 
+            color: var(--color-orange); 
+        }
+        footer .grid { 
+            gap: 1rem; 
+        }
+        footer .border-t { 
+            margin-top: 1rem; 
+            padding-top: 1rem; 
+            border-color: rgba(255, 98, 0, 0.1); 
+        }
+        .email-icon-gradient-bg { 
+            background: linear-gradient(90deg, var(--color-orange), var(--color-yellow)); 
+        }
+        .email-icon-gradient-bg svg { 
+            stroke: var(--color-white); 
+        }
+        .executives-image { 
+            position: relative; 
+            overflow: hidden; 
+            border-radius: 1rem; 
+            border: 2px solid var(--color-orange); 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+            transition: all 0.5s ease; 
+            width: 100%; 
+            max-width: 600px; 
+            margin: 2rem auto; 
+            padding-top: 56.25%; 
+            background: rgba(255, 98, 0, 0.1); 
+        }
+        .executives-image img { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.5s ease, opacity 0.5s ease; 
+            opacity: 0.8; 
+        }
+        .executives-image:hover { 
+            box-shadow: 0 0 20px rgba(255, 98, 0, 0.5); 
+            transform: scale(1.05); 
+        }
+        .executives-image:hover img { 
+            transform: scale(1.1); 
+            opacity: 1; 
+        }
+        @media (max-width: 768px) {
+            .section-dark { background-attachment: scroll; }
+            .what-we-do-grid { grid-template-columns: 1fr; }
+            .network-grid { grid-template-columns: 1fr; }
+            .sports-carousel { max-width: 100%; }
+            .executives-image { max-width: 100%; }
+            footer .md\\:flex-row { flex-direction: column; text-align: center; }
+            footer .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="sticky top-0 w-full z-50 bg-black">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html">
+                    <img src="images/novastra-logo.png" alt="Novastra Legacy Logo" class="h-12">
+                </a>
+            </div>
+            <nav class="hidden md:flex space-x-8" id="main-menu">
+                <a href="#" class="font-medium hover:text-orange-500 text-beige">Home</a>
+                <a href="#why-novastra" class="font-medium hover:text-orange-500 text-beige">Why Us?</a>
+                <a href="#services" class="font-medium hover:text-orange-500 text-beige">Services</a>
+                <a href="#network" class="font-medium hover:text-orange-500 text-beige">Our Network</a>
+                <a href="#contact" class="font-medium hover:text-orange-500 text-beige">Contact</a>
+            </nav>
+            <a href="https://calendly.com/consulting-novastra" target="_blank" rel="noopener noreferrer" class="hidden md:block btn-primary">Book a Call</a>
+            <button class="md:hidden text-beige" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <nav class="hidden md:hidden absolute right-4 mt-2 w-48 bg-gray-800 rounded-lg shadow-xl p-4 flex flex-col space-y-2 z-40" id="mobile-menu">
+            <a href="#" class="block font-medium px-2 py-1 text-beige hover:text-orange-500">Home</a>
+            <a href="#why-novastra" class="block font-medium px-2 py-1 text-beige hover:text-orange-500">Why Us?</a>
+            <a href="#services" class="block font-medium px-2 py-1 text-beige hover:text-orange-500">Services</a>
+            <a href="#network" class="block font-medium px-2 py-1 text-beige hover:text-orange-500">Our Network</a>
+            <a href="#contact" class="block font-medium px-2 py-1 text-beige hover:text-orange-500">Contact</a>
+            <a href="https://calendly.com/consulting-novastra" target="_blank" rel="noopener noreferrer" class="mt-2 block text-center btn-primary">Book a Call</a>
+        </nav>
+    </header>
+
+    <section class="hero-section section-dark relative">
+        <div class="container mx-auto px-4 relative z-10 min-h-screen flex items-center">
+            <div class="flex flex-col md:flex-row items-center justify-between w-full">
+                <div class="md:w-2/3 mb-10 md:mb-0 text-center md:text-left">
+                    <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6 font-playfair text-beige reveal-on-scroll">
+                        Shape the Future of Sports. Create Timeless Legacies.
+                    </h1>
+                    <p class="text-xl mb-8 font-montserrat text-beige max-w-2xl mx-auto md:mx-0 reveal-on-scroll reveal-delay-1">
+                        Novastra Legacy harnesses AI, blockchain, and automation to elevate athletes into global icons, empower clubs with cutting-edge strategies, and transform federations into digital pioneers. Join us to lead the sports revolution and leave an indelible mark on the world.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4 reveal-on-scroll reveal-delay-2">
+                        <a href="https://calendly.com/consulting-novastra" target="_blank" rel="noopener noreferrer" class="btn-primary">Launch Your Legacy</a>
+                        <a href="#why-novastra" class="btn-secondary">Explore Our Mission</a>
+                    </div>
+                    <p class="text-sm text-orange-500 mt-4 reveal-on-scroll reveal-delay-3">#RedefineSports #NovastraLegacy</p>
+                </div>
+                <div class="md:w-1/3 hidden md:block reveal-on-scroll">
+                    <div class="ml-auto">
+                        <img src="images/novastra-logo.png" alt="Novastra Legacy Logo Floating" class="h-96 max-w-full">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-novastra" class="py-20 scroll-mt-16 relative">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2 text-center md:text-left reveal-on-scroll">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 font-playfair">Why Choose Novastra Legacy?</h2>
+                    <p class="text-xl max-w-3xl mx-auto font-montserrat">
+                        We’re your global partner in redefining sports through AI-driven innovation. From athletes to federations, we craft strategies that boost revenue, deepen fan engagement, and forge legacies that echo worldwide.
+                    </p>
+                </div>
+                <div class="md:w-1/2 reveal-on-scroll">
+                    <div class="executives-image">
+                        <img src="images/partnership.png" alt="Executives collaborating in a sports innovation meeting">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="what-we-do" class="what-we-do-section scroll-mt-16 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 font-playfair text-beige">What We Do</h2>
+                <p class="text-xl max-w-3xl mx-auto font-montserrat text-beige">
+                    We provide strategic solutions to elevate sports properties through innovation, branding, and sustainable growth.
+                </p>
+            </div>
+            <div class="what-we-do-grid">
+                <div class="what-we-do-item reveal-on-scroll">
+                    <div class="image-frame mb-4">
+                        <img src="images/branding.png" alt="Branding Image">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 font-playfair text-beige">Branding</h3>
+                    <p class="font-montserrat text-beige">Craft iconic personal and corporate brands that resonate globally, enhancing visibility and fan loyalty.</p>
+                </div>
+                <div class="what-we-do-item reveal-on-scroll reveal-delay-1">
+                    <div class="image-frame mb-4">
+                        <img src="images/legacy.png" alt="Legacy Image">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 font-playfair text-beige">Legacy</h3>
+                    <p class="font-montserrat text-beige">Secure wealth management for sports properties, ensuring long-term financial stability and impact.</p>
+                </div>
+                <div class="what-we-do-item reveal-on-scroll reveal-delay-2">
+                    <div class="image-frame mb-4">
+                        <img src="images/performance.png" alt="Performance Optimization Image">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 font-playfair text-beige">Performance Optimization</h3>
+                    <p class="font-montserrat text-beige">Enhance performance for athletes, clubs, leagues, and federations through in-game, off-game, operational, and smart venue solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 scroll-mt-16 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 font-playfair">Elevate Your Sports Property’s Legacy</h2>
+                <p class="text-xl max-w-3xl mx-auto font-montserrat">
+                    Our strategic expertise empowers athletes, brands, leagues, and federations to achieve peak performance and global resonance, building legacies that inspire for generations.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="network" class="network-section scroll-mt-16 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 font-playfair">Access Our Wide Network in Sports</h2>
+                <p class="text-xl max-w-3xl mx-auto font-montserrat">
+                    Connect with a global ecosystem of sports innovators, tech pioneers, and industry leaders to amplify your impact and accelerate your growth.
+                </p>
+            </div>
+            <div class="network-grid">
+                <div class="network-item reveal-on-scroll">
+                    <h3 class="text-2xl font-bold mb-4 font-playfair">Sports Tech Innovators</h3>
+                    <p class="font-montserrat">Partner with cutting-edge tech firms driving the future of sports.</p>
+                </div>
+                <div class="network-item reveal-on-scroll reveal-delay-1">
+                    <h3 class="text-2xl font-bold mb-4 font-playfair">Global Federations</h3>
+                    <p class="font-montserrat">Collaborate with leading organizations shaping sports worldwide.</p>
+                </div>
+                <div class="network-item reveal-on-scroll reveal-delay-2">
+                    <h3 class="text-2xl font-bold mb-4 font-playfair">Elite Athletes & Brands</h3>
+                    <p class="font-montserrat">Join a network of top talent and iconic brands redefining excellence.</p>
+                </div>
+            </div>
+            <!-- <div class="sports-carousel mt-12 reveal-on-scroll">Favicon Links 
+                <div class="sports-carousel-track">
+                    <div class="sports-carousel-item"><img src="images/network/formula-1-logo-png_seeklogo-330361.png" alt="Sports Property Logo 1"></div>
+                    <div class="sports-carousel-item"><img src="images/network/wrc-fia-world-rally-logo-png_seeklogo-196351.png" alt="Sports Property Logo 2"></div>
+                    <div class="sports-carousel-item"><img src="images/network/LaLiga_logo_2023.svg.png" alt="Sports Property Logo 3"></div>
+                    <div class="sports-carousel-item"><img src="images/network/formula-1-logo-png_seeklogo-330361.png" alt="Sports Property Logo 4"></div>
+                    <div class="sports-carousel-item"><img src="images/network/Italian-Serie-A-Logo.png" alt="Sports Property Logo 5"></div>
+                    <div class="sports-carousel-item"><img src="images/network/primeira-liga-portugal1725.jpg" alt="Sports Property Logo 6"></div>
+                    <div class="sports-carousel-item"><img src="images/network/images.png" alt="Sports Property Logo 7"></div>
+                    <div class="sports-carousel-item"><img src="images/network/NFL-logo.png" alt="Sports Property Logo 8"></div>
+                    <div class="sports-carousel-item"><img src="images/network/NHL-Logo.png" alt="Sports Property Logo 9"></div>
+                    <div class="sports-carousel-item"><img src="images/network/mls-major-league-soccer6050.jpg" alt="Sports Property Logo 10"></div>
+                    <!-- Duplicate items for seamless looping 
+                    <div class="sports-carousel-item"><img src="images/network/formula-1-logo-png_seeklogo-330361.png" alt="Sports Property Logo 1"></div>
+                    <div class="sports-carousel-item"><img src="images/network/wrc-fia-world-rally-logo-png_seeklogo-196351.png" alt="Sports Property Logo 2"></div>
+                    <div class="sports-carousel-item"><img src="images/network/LaLiga_logo_2023.svg.png" alt="Sports Property Logo 3"></div>
+                    <div class="sports-carousel-item"><img src="images/network/formula-1-logo-png_seeklogo-330361.png" alt="Sports Property Logo 4"></div>
+                    <div class="sports-carousel-item"><img src="images/network/Italian-Serie-A-Logo.png" alt="Sports Property Logo 5"></div>
+                    <div class="sports-carousel-item"><img src="images/network/primeira-liga-portugal1725.jpg" alt="Sports Property Logo 6"></div>
+                    <div class="sports-carousel-item"><img src="images/network/images.png" alt="Sports Property Logo 7"></div>
+                    <div class="sports-carousel-item"><img src="images/network/NFL-logo.png" alt="Sports Property Logo 8"></div>
+                    <div class="sports-carousel-item"><img src="images/network/NHL-Logo.png" alt="Sports Property Logo 9"></div>
+                    <div class="sports-carousel-item"><img src="images/network/mls-major-league-soccer6050.jpg" alt="Sports Property Logo 10"></div>
+                </div> -->
+            </div>
+            <div class="text-center mt-12 reveal-on-scroll">
+                <a href="#contact" class="btn-primary">Tap Into Our Network</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 section-dark scroll-mt-16 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 font-playfair text-beige">Let’s Ignite Your Legacy Together</h2>
+                <p class="text-xl max-w-3xl mx-auto font-montserrat text-beige">
+                    Partner with Novastra Legacy to craft a story that inspires the world—your journey starts here.
+                </p>
+            </div>
+            <div class="max-w-2xl mx-auto reveal-on-scroll">
+                <div class="card-bg p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-center font-playfair text-beige">Start Your Journey</h3>
+                    <form action="https://formspree.io/f/xqazrvlz" method="POST">
+                        <div class="mb-4">
+                            <label class="block text-sm font-bold mb-2 text-beige font-montserrat" for="name">Your Name</label>
+                            <input class="shadow appearance-none border rounded w-full py-3 px-4 bg-white text-dark leading-tight focus:outline-none focus:shadow-outline" id="name" name="name" type="text" placeholder="Your full name" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-bold mb-2 text-beige font-montserrat" for="email">Email Address</label>
+                            <input class="shadow appearance-none border rounded w-full py-3 px-4 bg-white text-dark leading-tight focus:outline-none focus:shadow-outline" id="email" name="_replyto" type="email" placeholder="Your email" required>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold mb-2 text-beige font-montserrat" for="goals">Your Legacy Goals (optional)</label>
+                            <textarea class="shadow appearance-none border rounded w-full py-3 px-4 bg-white text-dark leading-tight focus:outline-none focus:shadow-outline" id="goals" name="goals" rows="3" placeholder="Tell Us Your Vision"></textarea>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <button class="btn-primary w-full" type="submit">Your Legacy Begins Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center mt-12 reveal-on-scroll">
+                <h3 class="text-2xl font-bold mb-4 font-playfair text-beige">Get in Touch</h3>
+                <p class="flex items-center justify-center font-montserrat text-beige">
+                    <span class="email-icon-gradient-bg inline-flex items-center justify-center rounded-full p-2 mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </span>
+                    <a href="mailto:consulting@novastra.ae" class="hover:text-orange-500 transition-colors duration-300">Reach Out to Redefine Your Future</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="relative">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-start">
+                <div class="mb-8 md:mb-0 md:w-1/3">
+                    <a href="index.html" class="hover:opacity-80 transition-opacity duration-300 inline-block">
+                        <img src="images/novastra-logo.png" alt="Novastra Legacy Footer Logo">
+                    </a>
+                    <p class="max-w-xs text-beige font-montserrat">
+                        Empowering sports entities with AI-driven solutions to build legacies that inspire globally.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-8 md:w-1/2">
+                    <div>
+                        <h4 class="font-bold mb-4 text-beige font-playfair">Navigation</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-beige hover:text-orange-500 font-montserrat transition-colors duration-300">Home</a></li>
+                            <li><a href="#why-novastra" class="text-beige hover:text-orange-500 font-montserrat transition-colors duration-300">Why Us?</a></li>
+                            <li><a href="#services" class="text-beige hover:text-orange-500 font-montserrat transition-colors duration-300">Services</a></li>
+                            <li><a href="#network" class="text-beige hover:text-orange-500 font-montserrat transition-colors duration-300">Our Network</a></li>
+                            <li><a href="#contact" class="text-beige hover:text-orange-500 font-montserrat transition-colors duration-300">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4 text-beige font-playfair">Connect</h4>
+                        <ul class="space-y-2">
+                            <li><a href="mailto:consulting@novastra.ae" class="text-beige hover:text-orange-500 font-montserrat transition-colors duration-300"consulting@novastra.ae</a></li>
+                            <li class="flex space-x-4 mt-4">
+                                <a href="https://www.linkedin.com/company/novastralegacy" target="_blank" rel="noopener noreferrer" class="hover:text-orange-500" aria-label="LinkedIn">
+                                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="var(--color-orange)">
+                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.067 0-1.139.92-2.063 2.063-2.063 1.14 0 2.064.924 2.064 2.063 0 1.141-.925 2.067-2.064 2.067zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                    </svg>
+                                </a>
+                                <a href="https://www.instagram.com/novastralegacy" target="_blank" rel="noopener noreferrer" class="hover:text-orange-500" aria-label="Instagram">
+                                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="var(--color-orange)">
+                                        <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15-.137-.353-.3-.882-.344-1.857-.048-1.055-.058-1.37-.058-4.041v-.08c0-2.597.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"/>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t mt-4 pt-4 text-center">
+                <p class="text-beige font-montserrat">2025 Novastra Legacy℠</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.querySelector('header button.md\\:hidden');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    const isExpanded = mobileMenu.classList.toggle('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', String(!isExpanded));
+                });
+            }
+
+            // Smooth Scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                            mobileMenuButton.setAttribute('aria-expanded', 'false');
+                        }
+                        return;
+                    }
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        e.preventDefault();
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const offsetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                            mobileMenuButton.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+            });
+
+            // Reveal on Scroll
+            const revealElements = document.querySelectorAll('.reveal-on-scroll');
+            if ('IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('revealed');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                revealElements.forEach(element => revealObserver.observe(element));
+            } else {
+                revealElements.forEach(element => element.classList.add('revealed'));
+            }
+
+            // Sports Carousel Auto Highlight
+            const carouselItems = document.querySelectorAll('.sports-carousel-item');
+            let currentIndex = 0;
+            function highlightNextItem() {
+                carouselItems.forEach(item => item.classList.remove('active'));
+                carouselItems[currentIndex].classList.add('active');
+                currentIndex = (currentIndex + 1) % (carouselItems.length / 2); // Account for duplication
+                setTimeout(highlightNextItem, 2000);
+            }
+            if (carouselItems.length > 0) {
+                highlightNextItem();
+            }
+        });
+    </script>
+</body>
+</html>
