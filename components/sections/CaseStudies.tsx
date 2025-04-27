@@ -70,7 +70,7 @@ const caseStudiesData: CaseStudy[] = [
   {
     id: 'performance-optimization',
     title: 'Elite Performance Optimization Program',
-    client: 'FC Barcelona',
+    client: 'Elite Football Club Team',
     clientLogo: '/images/clients/fcb-logo.png',
     category: 'Performance',
     sport: 'Football',
@@ -132,7 +132,7 @@ const caseStudiesData: CaseStudy[] = [
   {
     id: 'technology-transformation',
     title: 'Digital Transformation Initiative',
-    client: 'Formula 1 Team',
+    client: 'Motor Sport Team',
     clientLogo: '/images/clients/f1-logo.png',
     category: 'Technology',
     sport: 'Motorsport',
@@ -194,7 +194,7 @@ const caseStudiesData: CaseStudy[] = [
   {
     id: 'fan-engagement',
     title: 'Next-Gen Fan Engagement Platform',
-    client: 'Miami Heat',
+    client: 'Basketball team',
     clientLogo: '/images/clients/heat-logo.png',
     category: 'Fan Engagement',
     sport: 'Basketball',
