@@ -324,7 +324,7 @@ const Services = () => {
                             </div>
                           </div>
                           <Image
-                            src="/images/ai-implementation.jpg"
+                            src="images/AIService.png"
                             alt="AI Implementation Framework"
                             width={600}
                             height={300}

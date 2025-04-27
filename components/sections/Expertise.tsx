@@ -11,7 +11,7 @@ const expertiseAreas = [
     title: 'Artificial Intelligence',
     description: 'Transforming sports with machine learning, computer vision, and predictive analytics for performance optimization and fan experiences.',
     proficiency: 95, // out of 100
-    image: '/images/expertise-ai.jpg',
+    image: 'images/AIService.png',
     applications: [
       'Athlete Performance Analysis',
       'Fan Behavior Prediction',
@@ -24,7 +24,7 @@ const expertiseAreas = [
     title: 'Blockchain Technology',
     description: 'Pioneering decentralized solutions for ticketing, digital collectibles, loyalty programs, and transparent governance.',
     proficiency: 90,
-    image: '/images/expertise-blockchain.jpg',
+    image: 'images/BlockchainService.png',
     applications: [
       'Smart Ticket Distribution',
       'NFT Strategy & Development',
@@ -37,7 +37,7 @@ const expertiseAreas = [
     title: 'Fan Engagement',
     description: 'Creating immersive digital experiences that deepen audience connections through personalization, gamification, and interactive content.',
     proficiency: 97,
-    image: '/images/expertise-fan.jpg',
+    image: 'images/FanService.png',
     applications: [
       'Second Screen Experiences',
       'Augmented Reality Activation',
@@ -50,7 +50,7 @@ const expertiseAreas = [
     title: 'Data Architecture',
     description: 'Designing comprehensive data ecosystems that convert information into actionable insights for strategic advantage.',
     proficiency: 93,
-    image: '/images/expertise-data.jpg',
+    image: 'images/DataService.png',
     applications: [
       'Performance Metrics Framework',
       'Centralized Data Warehousing',
@@ -63,7 +63,7 @@ const expertiseAreas = [
     title: 'Brand Architecture',
     description: 'Structuring sports properties to maximize recognition, loyalty, and commercial opportunity across diverse touchpoints.',
     proficiency: 98,
-    image: '/images/expertise-brand.jpg',
+    image: 'images/BrandService.png',
     applications: [
       'Digital Identity Development',
       'Multi-channel Brand Strategy',

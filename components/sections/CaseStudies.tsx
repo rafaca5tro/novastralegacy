@@ -124,7 +124,7 @@ const caseStudiesData: CaseStudy[] = [
     },
     testimonial: {
       quote: "Novastra's approach has transformed our performance department. The data integration and predictive models have given us capabilities we didn't know were possible.",
-      author: "Carlos Fuentes",
+      author: "Scott Heart",
       position: "Head of Performance"
     },
     image: '/images/case-studies/performance-case.jpg'
@@ -132,7 +132,7 @@ const caseStudiesData: CaseStudy[] = [
   {
     id: 'technology-transformation',
     title: 'Digital Transformation Initiative',
-    client: 'Motor Sport Team',
+    client: 'Motorsport Team',
     clientLogo: '/images/clients/f1-logo.png',
     category: 'Technology',
     sport: 'Motorsport',
