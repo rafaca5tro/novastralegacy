@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect, useRef } from 'react';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -369,26 +371,34 @@ const TechnologyVision: React.FC = () => {
     
     // Reset opacity
     nodes.forEach(node => {
-      node.style.opacity = '0';
+      if (node instanceof HTMLElement || node instanceof SVGElement) {
+        node.style.opacity = '0';
+      }
     });
     links.forEach(link => {
-      link.style.opacity = '0';
+      if (link instanceof HTMLElement || link instanceof SVGElement) {
+        link.style.opacity = '0';
+      }
     });
     
     // Animate in
     setTimeout(() => {
       links.forEach((link, i) => {
         setTimeout(() => {
-          link.style.transition = 'opacity 0.5s ease-out';
-          link.style.opacity = '1';
+          if (link instanceof HTMLElement || link instanceof SVGElement) {
+            link.style.transition = 'opacity 0.5s ease-out';
+            link.style.opacity = '1';
+          }
         }, i * 50);
       });
       
       setTimeout(() => {
         nodes.forEach((node, i) => {
           setTimeout(() => {
-            node.style.transition = 'opacity 0.5s ease-out';
-            node.style.opacity = '1';
+            if (node instanceof HTMLElement || node instanceof SVGElement) {
+              node.style.transition = 'opacity 0.5s ease-out';
+              node.style.opacity = '1';
+            }
           }, i * 100);
         });
       }, 300);

@@ -1,10 +1,12 @@
+"use client";
+
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import SectionHeading from '../ui/SectionHeading';
 import GlassCard from '../ui/GlassCard';
 import Image from 'next/image';
-import { Line } from 'react-chartjs-2';
+import dynamic from 'next/dynamic';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -16,6 +18,11 @@ import {
   Legend,
   Filler
 } from 'chart.js';
+
+// Dynamic import for react-chartjs-2 to prevent SSR issues
+const Line = dynamic(() => import('react-chartjs-2').then(mod => mod.Line), {
+  ssr: false
+});
 
 // Register Chart.js components
 ChartJS.register(
@@ -311,12 +318,12 @@ const CaseStudies: React.FC = () => {
         {
           label: metric,
           data: [selectedCase.metrics.before[metric], selectedCase.metrics.after[metric]],
-          borderColor: 'rgba(255, 69, 0, 0.8)',
-          backgroundColor: 'rgba(255, 69, 0, 0.2)',
+          borderColor: 'rgba(255, 69, 0, 0.8)', // novastra-orange
+          backgroundColor: 'rgba(255, 69, 0, 0.2)', // novastra-orange with opacity
           fill: true,
           tension: 0.4,
-          pointBackgroundColor: ['#FFD700', '#FF4500'],
-          pointBorderColor: ['#FFD700', '#FF4500'],
+          pointBackgroundColor: ['#FFD700', '#FF4500'], // novastra-gold, novastra-orange
+          pointBorderColor: ['#FFD700', '#FF4500'], // novastra-gold, novastra-orange
           pointRadius: 6,
           pointHoverRadius: 8
         }
@@ -340,7 +347,7 @@ const CaseStudies: React.FC = () => {
         backgroundColor: 'rgba(0, 0, 0, 0.8)',
         titleFont: {
           size: 16,
-          weight: 'bold'
+          weight: 'bold' // Font weight as a valid enum value
         },
         bodyFont: {
           size: 14
@@ -349,7 +356,7 @@ const CaseStudies: React.FC = () => {
         cornerRadius: 6
       }
     }
-  };
+  } as const; // Type assertion to ensure compatibility with Chart.js
 
   // Calculate improvement percentage
   const calculateImprovement = (metric: string) => {
@@ -437,13 +444,13 @@ const CaseStudies: React.FC = () => {
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.4 }}
                     >
-                      {/* This would be replaced with actual images */}
-                      <div className="w-full h-full bg-gradient-to-r from-orange-600/20 to-yellow-400/20 flex items-center justify-center">
-                        <span className="text-orange-500 text-lg font-bold">[Case Study Image]</span>
+                      {/* Use a placeholder gradient background until images are available */}
+                      <div className="w-full h-full bg-gradient-to-r from-novastra-orange/20 to-novastra-gold/20 flex items-center justify-center">
+                        <span className="text-novastra-orange text-lg font-bold">[Case Study Image]</span>
                       </div>
                     </motion.div>
                     <div className="absolute bottom-4 left-4 z-20">
-                      <span className="px-3 py-1 bg-orange-500 text-white text-xs font-medium rounded-full">
+                      <span className="px-3 py-1 bg-novastra-orange text-white text-xs font-medium rounded-full">
                         {caseStudy.category}
                       </span>
                     </div>
@@ -461,7 +468,7 @@ const CaseStudies: React.FC = () => {
                         <span className="text-green-400 font-bold">{caseStudy.metrics.roi}%</span>
                       </div>
                       <motion.span 
-                        className="text-orange-400 flex items-center"
+                        className="text-novastra-orange flex items-center"
                         whileHover={{ x: 5 }}
                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
                       >
@@ -501,7 +508,7 @@ const CaseStudies: React.FC = () => {
                     <div className="lg:col-span-2">
                       <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">{selectedCase.title}</h2>
                       <div className="flex items-center mb-6">
-                        <span className="px-3 py-1 bg-orange-500 text-white text-sm font-medium rounded-full mr-3">
+                        <span className="px-3 py-1 bg-novastra-orange text-white text-sm font-medium rounded-full mr-3">
                           {selectedCase.category}
                         </span>
                         <span className="text-gray-400">{selectedCase.client} • {selectedCase.sport}</span>
@@ -522,7 +529,7 @@ const CaseStudies: React.FC = () => {
                         <h3 className="text-xl font-semibold mb-4 text-gradient">Implementation Timeline</h3>
                         <div className="relative pl-8">
                           {/* Timeline line */}
-                          <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-500 to-yellow-400" />
+                          <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-gradient-to-b from-novastra-orange to-novastra-gold" />
                           
                           {selectedCase.timeframe.milestones.map((milestone, index) => (
                             <motion.div 
@@ -534,7 +541,7 @@ const CaseStudies: React.FC = () => {
                               transition={{ delay: index * 0.1, duration: 0.5 }}
                             >
                               {/* Timeline dot */}
-                              <div className="absolute -left-8 top-1.5 w-6 h-6 bg-gradient-to-r from-orange-500 to-yellow-400 rounded-full flex items-center justify-center shadow-glow">
+                              <div className="absolute -left-8 top-1.5 w-6 h-6 bg-gradient-to-r from-novastra-orange to-novastra-gold rounded-full flex items-center justify-center shadow-novastra">
                                 <div className="w-2 h-2 bg-white rounded-full" />
                               </div>
                               
@@ -550,9 +557,9 @@ const CaseStudies: React.FC = () => {
                       
                       {/* Testimonial if available */}
                       {selectedCase.testimonial && (
-                        <GlassCard className="mb-8 border border-orange-500/20">
+                        <GlassCard className="mb-8 border border-novastra-orange/20">
                           <div className="relative">
-                            <svg className="absolute -top-4 -left-4 w-10 h-10 text-orange-500/50" fill="currentColor" viewBox="0 0 24 24">
+                            <svg className="absolute -top-4 -left-4 w-10 h-10 text-novastra-orange/50" fill="currentColor" viewBox="0 0 24 24">
                               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                             </svg>
                             <p className="text-lg italic text-gray-300 mb-4">{selectedCase.testimonial.quote}</p>
@@ -590,7 +597,9 @@ const CaseStudies: React.FC = () => {
                         {activeMetric && (
                           <div className="mb-6">
                             <div className="h-60">
-                              <Line data={generateChartData(activeMetric) || { labels: ['Before', 'After'], datasets: [] }} options={chartOptions} />
+                              {typeof window !== 'undefined' && (
+                                <Line data={generateChartData(activeMetric) || { labels: ['Before', 'After'], datasets: [] }} options={chartOptions} />
+                              )}
                             </div>
                             <div className="mt-4 text-center">
                               <span className="font-semibold">Improvement: </span>
@@ -636,7 +645,7 @@ const CaseStudies: React.FC = () => {
                         </div>
                         
                         {/* ROI Calculator */}
-                        <div className="mt-8 p-4 bg-gradient-to-r from-orange-500/20 to-yellow-400/20 rounded-lg">
+                        <div className="mt-8 p-4 bg-gradient-to-r from-novastra-orange/20 to-novastra-gold/20 rounded-lg">
                           <h4 className="text-lg font-semibold mb-2 text-center">Return on Investment</h4>
                           <div className="flex items-center justify-center">
                             <svg className="w-12 h-12 text-green-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

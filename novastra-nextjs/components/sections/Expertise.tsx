@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import SectionHeading from '../ui/SectionHeading';
@@ -87,6 +89,11 @@ const Expertise = () => {
   // Create refs for each expertise area
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
   
+  // Initialize refs array
+  useEffect(() => {
+    itemRefs.current = itemRefs.current.slice(0, expertiseAreas.length);
+  }, []);
+  
   // Set up the intersection observer to detect which expertise area is in view
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -136,7 +143,10 @@ const Expertise = () => {
             {expertiseAreas.map((expertise, index) => (
               <div
                 key={expertise.id}
-                ref={el => itemRefs.current[index] = el}
+                ref={(el) => {
+                  if (el) itemRefs.current[index] = el;
+                  return null;
+                }}
                 data-id={expertise.id}
                 className={`relative ${activeExpertise === expertise.id ? 'opacity-100' : 'opacity-70'} transition-opacity duration-300`}
               >
