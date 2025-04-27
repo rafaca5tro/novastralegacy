@@ -77,7 +77,7 @@ const caseStudiesData: CaseStudy[] = [
   {
     id: 'performance-optimization',
     title: 'Elite Performance Optimization Program',
-    client: 'FC Barcelona',
+    client: 'European Elite Football Club',
     clientLogo: '/images/clients/fcb-logo.png',
     category: 'Performance',
     sport: 'Football',
@@ -131,15 +131,15 @@ const caseStudiesData: CaseStudy[] = [
     },
     testimonial: {
       quote: "Novastra's approach has transformed our performance department. The data integration and predictive models have given us capabilities we didn't know were possible.",
-      author: "Carlos Fuentes",
-      position: "Head of Performance"
+      author: "Performance Director",
+      position: "European Football Club"
     },
     image: '/images/case-studies/performance-case.jpg'
   },
   {
     id: 'technology-transformation',
     title: 'Digital Transformation Initiative',
-    client: 'Formula 1 Team',
+    client: 'Premier Motorsport Racing Team',
     clientLogo: '/images/clients/f1-logo.png',
     category: 'Technology',
     sport: 'Motorsport',
@@ -193,15 +193,15 @@ const caseStudiesData: CaseStudy[] = [
     },
     testimonial: {
       quote: "In a sport where milliseconds matter, Novastra delivered technology that has fundamentally changed how we operate. The ROI has exceeded our most optimistic projections.",
-      author: "Sarah Williams",
-      position: "Chief Technical Officer"
+      author: "Chief Technical Officer",
+      position: "Motorsport Organization"
     },
     image: '/images/case-studies/tech-case.jpg'
   },
   {
     id: 'fan-engagement',
     title: 'Next-Gen Fan Engagement Platform',
-    client: 'Miami Heat',
+    client: 'Professional Basketball Franchise',
     clientLogo: '/images/clients/heat-logo.png',
     category: 'Fan Engagement',
     sport: 'Basketball',
@@ -255,8 +255,8 @@ const caseStudiesData: CaseStudy[] = [
     },
     testimonial: {
       quote: "Novastra understood our challenges from day one. Their innovative approach has created a fan experience that's become the envy of the league.",
-      author: "Michael Thompson",
-      position: "VP of Fan Experience"
+      author: "VP of Fan Experience",
+      position: "Professional Sports Team"
     },
     image: '/images/case-studies/fan-case.jpg'
   }
