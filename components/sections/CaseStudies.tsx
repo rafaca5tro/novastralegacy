@@ -14,7 +14,8 @@ import {
   Title,
   Tooltip,
   Legend,
-  Filler
+  Filler,
+  ChartOptions
 } from 'chart.js';
 
 // Register Chart.js components
@@ -321,25 +322,15 @@ const CaseStudies: React.FC = () => {
           pointHoverRadius: 8
         }
       ]
-    };
+    } as const;
   };
 
-  // Chart options
-  const chartOptions = {
+  // Chart options with memoization to avoid type errors
+  const [chartOptions, setChartOptions] = useState<ChartOptions<'line'>>({
     responsive: true,
     scales: {
       y: {
-        beginAtZero: metric => {
-          // Some metrics are better when lower (like injury rates)
-          const isBetterWhenLower = [
-            'Soft Tissue Injuries per Month',
-            'Recovery Time (days)',
-            'Data Processing Time (minutes)',
-            'Strategy Decision Time (seconds)'
-          ].includes(activeMetric);
-          
-          return !isBetterWhenLower;
-        }
+        beginAtZero: true
       }
     },
     plugins: {
@@ -359,7 +350,31 @@ const CaseStudies: React.FC = () => {
         cornerRadius: 6
       }
     }
-  };
+  });
+  
+  // Update chart options when activeMetric changes
+  useEffect(() => {
+    if (activeMetric) {
+      // Some metrics are better when lower (like injury rates)
+      const isBetterWhenLower = [
+        'Soft Tissue Injuries per Month',
+        'Recovery Time (days)',
+        'Data Processing Time (minutes)',
+        'Strategy Decision Time (seconds)'
+      ].includes(activeMetric);
+      
+      setChartOptions(prev => ({
+        ...prev,
+        scales: {
+          ...prev.scales,
+          y: {
+            ...prev.scales.y,
+            beginAtZero: !isBetterWhenLower
+          }
+        }
+      }));
+    }
+  }, [activeMetric]);
 
   // Calculate improvement percentage
   const calculateImprovement = (metric: string) => {
@@ -600,7 +615,9 @@ const CaseStudies: React.FC = () => {
                         {activeMetric && (
                           <div className="mb-6">
                             <div className="h-60">
-                              <Line data={generateChartData(activeMetric)!} options={chartOptions} />
+                              {generateChartData(activeMetric) && (
+                                <Line data={generateChartData(activeMetric)!} options={chartOptions} />
+                              )}
                             </div>
                             <div className="mt-4 text-center">
                               <span className="font-semibold">Improvement: </span>
