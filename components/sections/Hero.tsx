@@ -173,7 +173,7 @@ const Hero = () => {
               variants={item}
             >
               <GradientButton 
-                href="#contact"
+                href="https://calendly.com/consulting-novastra"
                 variant="primary"
                 size="lg"
                 animated={true}
@@ -185,6 +185,24 @@ const Hero = () => {
               >
                 Launch Your Legacy
               </GradientButton>
+              
+              <GradientButton 
+                href="#services" 
+                variant="secondary"
+                size="lg"
+                animated={true}
+              >
+                Explore Our Services
+              </GradientButton>
+            </motion.div>
+            
+            <motion.div
+              className="mt-8 flex justify-center lg:justify-start items-center text-sm opacity-70"
+              variants={item}
+            >
+              <span className="text-novastra-gold">#RedefineSports #NovastraLegacy</span>
+            </motion.div>
+          </motion.div>
           
           {/* 3D Animated Logo */}
           <motion.div 
@@ -212,12 +230,13 @@ const Hero = () => {
                 }}
               >
                 <Image 
-                  src="images/novastra-logo.png" 
+                  src="https://github.com/rafaca5tro/novastralegacy/blob/main/images/novastra-logo.png" 
                   alt="Novastra Legacy Logo" 
                   width={400} 
                   height={400} 
                   className="drop-shadow-2xl"
                   priority
+                  unoptimized
                 />
               </motion.div>
             </div>
