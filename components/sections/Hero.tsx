@@ -214,7 +214,7 @@ const Hero = () => {
                 }}
               >
                 <Image 
-                  src="https://github.com/rafaca5tro/novastralegacy/blob/main/images/novastra-logo.png" 
+                  src="https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/novastra-logo.png" 
                   alt="Novastra Legacy Logo" 
                   width={400} 
                   height={400} 
