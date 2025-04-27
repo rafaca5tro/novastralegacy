@@ -99,7 +99,7 @@ const CaseStudies = () => {
 
   const selectedCase = caseStudies.find(cs => cs.id === activeCase) || caseStudies[0];
 
-  // Chart options with the fixed weight property
+  // Fixed chart options with correct typing for 'weight'
   const chartOptions = {
     responsive: true,
     scales: {
@@ -115,7 +115,7 @@ const CaseStudies = () => {
         backgroundColor: '#1a2e44',
         titleFont: {
           size: 14,
-          weight: 'bold' // Changed from string to valid font weight option
+          weight: 'bold' as const // Using 'as const' to ensure TypeScript knows this is a literal
         },
         bodyFont: {
           size: 12
