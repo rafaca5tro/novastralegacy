@@ -186,22 +186,6 @@ const Hero = () => {
                 Launch Your Legacy
               </GradientButton>
               
-              <GradientButton 
-                href="#services" 
-                variant="secondary"
-                size="lg"
-                animated={true}
-              >
-                Explore Our Services
-              </GradientButton>
-            </motion.div>
-            
-            <motion.div
-              className="mt-8 flex justify-center lg:justify-start items-center text-sm opacity-70"
-              variants={item}
-            >
-              <span className="text-novastra-gold">#RedefineSports #NovastraLegacy</span>
-            </motion.div>
           </motion.div>
           
           {/* 3D Animated Logo */}
