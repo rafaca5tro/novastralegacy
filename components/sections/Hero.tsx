@@ -185,29 +185,6 @@ const Hero = () => {
               >
                 Launch Your Legacy
               </GradientButton>
-              
-              <GradientButton 
-                href="#services" 
-                variant="secondary"
-                size="lg"
-                animated={true}
-              >
-                Explore Our Services
-              </GradientButton>
-            </motion.div>
-            
-            <motion.div
-              className="mt-8 flex space-x-4 justify-center lg:justify-start items-center text-sm opacity-70"
-              variants={item}
-            >
-              <span>Featured Clients:</span>
-              <div className="flex space-x-6">
-                <Image src="/images/client-logo-1.png" alt="Formula 1" width={60} height={20} className="h-5 w-auto opacity-70" />
-                <Image src="/images/client-logo-2.png" alt="LaLiga" width={60} height={20} className="h-5 w-auto opacity-70" />
-                <Image src="/images/client-logo-3.png" alt="NFL" width={60} height={20} className="h-5 w-auto opacity-70" />
-              </div>
-            </motion.div>
-          </motion.div>
           
           {/* 3D Animated Logo */}
           <motion.div 
@@ -235,7 +212,7 @@ const Hero = () => {
                 }}
               >
                 <Image 
-                  src="/images/novastra-logo.png" 
+                  src="images/novastra-logo.png" 
                   alt="Novastra Legacy Logo" 
                   width={400} 
                   height={400} 
