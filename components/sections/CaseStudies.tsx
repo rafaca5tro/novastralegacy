@@ -15,7 +15,8 @@ import {
   Tooltip,
   Legend,
   Filler,
-  ChartOptions
+  ChartOptions,
+  ChartData
 } from 'chart.js';
 
 // Register Chart.js components
@@ -303,11 +304,12 @@ const CaseStudies: React.FC = () => {
   };
 
   // Generate chart data for the selected metric
-  const generateChartData = (metric: string) => {
+  const generateChartData = (metric: string): ChartData<'line'> | null => {
     if (!selectedCase) return null;
     
+    // Use proper Chart.js data structure
     return {
-      labels: ['Before', 'After'],
+      labels: ['Before', 'After'] as string[],
       datasets: [
         {
           label: metric,
@@ -322,7 +324,7 @@ const CaseStudies: React.FC = () => {
           pointHoverRadius: 8
         }
       ]
-    } as const;
+    };
   };
 
   // Chart options with memoization to avoid type errors
@@ -615,8 +617,25 @@ const CaseStudies: React.FC = () => {
                         {activeMetric && (
                           <div className="mb-6">
                             <div className="h-60">
-                              {generateChartData(activeMetric) && (
-                                <Line data={generateChartData(activeMetric)!} options={chartOptions} />
+                              {activeMetric && selectedCase && (
+                                <Line 
+                                  data={{
+                                    labels: ['Before', 'After'],
+                                    datasets: [{
+                                      label: activeMetric,
+                                      data: [selectedCase.metrics.before[activeMetric], selectedCase.metrics.after[activeMetric]],
+                                      borderColor: 'rgba(255, 69, 0, 0.8)',
+                                      backgroundColor: 'rgba(255, 69, 0, 0.2)',
+                                      fill: true,
+                                      tension: 0.4,
+                                      pointBackgroundColor: ['#FFD700', '#FF4500'],
+                                      pointBorderColor: ['#FFD700', '#FF4500'],
+                                      pointRadius: 6,
+                                      pointHoverRadius: 8
+                                    }]
+                                  }}
+                                  options={chartOptions} 
+                                />
                               )}
                             </div>
                             <div className="mt-4 text-center">
