@@ -136,7 +136,7 @@ const Expertise = () => {
             {expertiseAreas.map((expertise, index) => (
               <div
                 key={expertise.id}
-                ref={el => itemRefs.current[index] = el}
+                ref={(el: HTMLDivElement | null) => { itemRefs.current[index] = el }}
                 data-id={expertise.id}
                 className={`relative ${activeExpertise === expertise.id ? 'opacity-100' : 'opacity-70'} transition-opacity duration-300`}
               >
