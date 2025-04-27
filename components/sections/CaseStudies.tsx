@@ -343,7 +343,7 @@ const CaseStudies: React.FC = () => {
         backgroundColor: 'rgba(0, 0, 0, 0.8)',
         titleFont: {
           size: 16,
-          weight: 'bold'
+          weight: 'normal'
         },
         bodyFont: {
           size: 14
@@ -368,9 +368,7 @@ const CaseStudies: React.FC = () => {
       setChartOptions(prev => ({
         ...prev,
         scales: {
-          ...prev.scales,
           y: {
-            ...prev.scales.y,
             beginAtZero: !isBetterWhenLower
           }
         }
@@ -619,20 +617,9 @@ const CaseStudies: React.FC = () => {
                             <div className="h-60">
                               {activeMetric && selectedCase && (
                                 <Line 
-                                  data={{
+                                  data={generateChartData(activeMetric) || {
                                     labels: ['Before', 'After'],
-                                    datasets: [{
-                                      label: activeMetric,
-                                      data: [selectedCase.metrics.before[activeMetric], selectedCase.metrics.after[activeMetric]],
-                                      borderColor: 'rgba(255, 69, 0, 0.8)',
-                                      backgroundColor: 'rgba(255, 69, 0, 0.2)',
-                                      fill: true,
-                                      tension: 0.4,
-                                      pointBackgroundColor: ['#FFD700', '#FF4500'],
-                                      pointBorderColor: ['#FFD700', '#FF4500'],
-                                      pointRadius: 6,
-                                      pointHoverRadius: 8
-                                    }]
+                                    datasets: []
                                   }}
                                   options={chartOptions} 
                                 />
@@ -664,8 +651,8 @@ const CaseStudies: React.FC = () => {
                               </tr>
                             </thead>
                             <tbody className="bg-gray-900 divide-y divide-gray-800">
-                              {selectedCase && Object.keys(selectedCase.metrics.before).map(metric => (
-                                <tr key={metric} className={activeMetric === metric ? 'bg-gray-800/50' : ''}>
+                              {selectedCase && Object.keys(selectedCase.metrics.before).map((metric, index) => (
+                                <tr key={`${metric}-${index}`} className={activeMetric === metric ? 'bg-gray-800/50' : ''}>
                                   <td className="px-4 py-2 text-sm font-medium text-white">
                                     {metric}
                                   </td>

@@ -329,17 +329,7 @@ const CaseStudies: React.FC = () => {
     responsive: true,
     scales: {
       y: {
-        beginAtZero: metric => {
-          // Some metrics are better when lower (like injury rates)
-          const isBetterWhenLower = [
-            'Soft Tissue Injuries per Month',
-            'Recovery Time (days)',
-            'Data Processing Time (minutes)',
-            'Strategy Decision Time (seconds)'
-          ].includes(activeMetric);
-          
-          return !isBetterWhenLower;
-        }
+        beginAtZero: true
       }
     },
     plugins: {
@@ -350,7 +340,7 @@ const CaseStudies: React.FC = () => {
         backgroundColor: 'rgba(0, 0, 0, 0.8)',
         titleFont: {
           size: 16,
-          weight: 'bold'
+          weight: 'normal'
         },
         bodyFont: {
           size: 14
@@ -600,7 +590,7 @@ const CaseStudies: React.FC = () => {
                         {activeMetric && (
                           <div className="mb-6">
                             <div className="h-60">
-                              <Line data={generateChartData(activeMetric)!} options={chartOptions} />
+                              <Line data={generateChartData(activeMetric) || { labels: ['Before', 'After'], datasets: [] }} options={chartOptions} />
                             </div>
                             <div className="mt-4 text-center">
                               <span className="font-semibold">Improvement: </span>
@@ -628,8 +618,8 @@ const CaseStudies: React.FC = () => {
                               </tr>
                             </thead>
                             <tbody className="bg-gray-900 divide-y divide-gray-800">
-                              {selectedCase && Object.keys(selectedCase.metrics.before).map(metric => (
-                                <tr key={metric} className={activeMetric === metric ? 'bg-gray-800/50' : ''}>
+                              {selectedCase && Object.keys(selectedCase.metrics.before).map((metric, index) => (
+                                <tr key={`${metric}-${index}`} className={activeMetric === metric ? 'bg-gray-800/50' : ''}>
                                   <td className="px-4 py-2 text-sm font-medium text-white">
                                     {metric}
                                   </td>

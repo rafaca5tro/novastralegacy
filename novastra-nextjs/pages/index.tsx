@@ -11,17 +11,11 @@ import Contact from '../components/sections/Contact';
 
 const Home: NextPage = () => {
   return (
-    <Layout>
-      <Head>
-        <title>Novastra | Sports Innovation Consultancy</title>
-        <meta name="description" content="Novastra helps sports organizations transform through technology and innovation. We deliver measurable results across performance, fan engagement, and commercial operations." />
-        <meta property="og:title" content="Novastra | Sports Innovation Consultancy" />
-        <meta property="og:description" content="Transforming sports organizations through innovative technology solutions." />
-        <meta property="og:image" content="/images/novastra-social.jpg" />
-        <meta property="og:url" content="https://novastra.com" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
-
+    <Layout
+      title="Novastra | Sports Innovation Consultancy"
+      description="Novastra helps sports organizations transform through technology and innovation. We deliver measurable results across performance, fan engagement, and commercial operations."
+      ogImage="/images/novastra-social.jpg"
+    >
       <main>
         <Hero />
         <Services />

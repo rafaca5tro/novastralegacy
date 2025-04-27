@@ -39,11 +39,12 @@ const GlassCard: React.FC<GlassCardProps> = ({
 
   return (
     <motion.div 
-      className={`glass-card p-6 rounded-xl ${className}`}
+      className={`glass-card p-6 rounded-xl ${className} ${interactive ? 'cursor-pointer' : ''}`}
       variants={cardVariants}
       initial="hidden"
       whileInView="visible"
       whileHover={interactive ? "hover" : undefined}
+      whileTap={interactive ? { scale: 0.98 } : undefined}
       viewport={{ once: true, margin: "-50px" }}
       onClick={onClick}
     >
