@@ -230,12 +230,13 @@ const Hero = () => {
                 }}
               >
                 <Image 
-                  src="/images/novastra-logo.png" 
+                  src="https://raw.githubusercontent.com/rafaca5tro/images/main/novastra-logo.png" 
                   alt="Novastra Legacy Logo" 
                   width={400} 
                   height={400} 
                   className="drop-shadow-2xl"
                   priority
+                  unoptimized
                 />
               </motion.div>
             </div>

@@ -44,11 +44,12 @@ const Footer = () => {
           <motion.div variants={itemVariants} className="md:col-span-2">
             <Link href="/" className="inline-block mb-6">
               <Image 
-                src="/images/novastra-logo.png" 
+                src="https://raw.githubusercontent.com/rafaca5tro/images/main/novastra-logo.png" 
                 alt="Novastra Legacy" 
                 width={180} 
                 height={50} 
                 className="h-14 w-auto object-contain"
+                unoptimized
               />
             </Link>
             <p className="text-novastra-beige opacity-80 max-w-md">

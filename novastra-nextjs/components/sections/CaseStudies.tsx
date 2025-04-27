@@ -78,7 +78,7 @@ const caseStudiesData: CaseStudy[] = [
     id: 'performance-optimization',
     title: 'Elite Performance Optimization Program',
     client: 'European Elite Football Club',
-    clientLogo: '/images/clients/fcb-logo.png',
+    clientLogo: 'https://cdn.pixabay.com/photo/2017/06/16/07/26/under-construction-2408062_960_720.png',
     category: 'Performance',
     sport: 'Football',
     challenge: 'Declining player availability rate and increasing soft tissue injuries affecting team performance in critical matches.',
@@ -134,13 +134,13 @@ const caseStudiesData: CaseStudy[] = [
       author: "Performance Director",
       position: "European Football Club"
     },
-    image: '/images/case-studies/performance-case.jpg'
+    image: 'https://cdn.pixabay.com/photo/2014/11/17/13/17/crossfit-534615_1280.jpg'
   },
   {
     id: 'technology-transformation',
     title: 'Digital Transformation Initiative',
     client: 'Premier Motorsport Racing Team',
-    clientLogo: '/images/clients/f1-logo.png',
+    clientLogo: 'https://cdn.pixabay.com/photo/2016/07/28/10/40/racing-1547820_960_720.jpg',
     category: 'Technology',
     sport: 'Motorsport',
     challenge: 'Legacy systems causing data silos and inefficient workflows between race engineering and factory teams.',
@@ -196,13 +196,13 @@ const caseStudiesData: CaseStudy[] = [
       author: "Chief Technical Officer",
       position: "Motorsport Organization"
     },
-    image: '/images/case-studies/tech-case.jpg'
+    image: 'https://cdn.pixabay.com/photo/2020/04/08/16/32/server-5017527_1280.jpg'
   },
   {
     id: 'fan-engagement',
     title: 'Next-Gen Fan Engagement Platform',
     client: 'Professional Basketball Franchise',
-    clientLogo: '/images/clients/heat-logo.png',
+    clientLogo: 'https://cdn.pixabay.com/photo/2015/07/18/13/20/basketball-850465_960_720.jpg',
     category: 'Fan Engagement',
     sport: 'Basketball',
     challenge: 'Declining in-arena attendance and digital engagement metrics among key demographic segments.',
@@ -258,7 +258,7 @@ const caseStudiesData: CaseStudy[] = [
       author: "VP of Fan Experience",
       position: "Professional Sports Team"
     },
-    image: '/images/case-studies/fan-case.jpg'
+    image: 'https://cdn.pixabay.com/photo/2015/09/02/12/25/basketball-917857_1280.jpg'
   }
 ];
 

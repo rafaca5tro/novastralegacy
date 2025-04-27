@@ -13,7 +13,7 @@ const expertiseAreas = [
     title: 'Artificial Intelligence',
     description: 'Transforming sports with machine learning, computer vision, and predictive analytics for performance optimization and fan experiences.',
     proficiency: 95, // out of 100
-    image: '/images/expertise-ai.jpg',
+    image: 'https://cdn.pixabay.com/photo/2018/09/27/09/22/artificial-intelligence-3706562_1280.jpg',
     applications: [
       'Athlete Performance Analysis',
       'Fan Behavior Prediction',
@@ -26,7 +26,7 @@ const expertiseAreas = [
     title: 'Blockchain Technology',
     description: 'Pioneering decentralized solutions for ticketing, digital collectibles, loyalty programs, and transparent governance.',
     proficiency: 90,
-    image: '/images/expertise-blockchain.jpg',
+    image: 'https://cdn.pixabay.com/photo/2018/01/18/10/00/blockchain-3090195_1280.jpg',
     applications: [
       'Smart Ticket Distribution',
       'NFT Strategy & Development',
@@ -39,7 +39,7 @@ const expertiseAreas = [
     title: 'Fan Engagement',
     description: 'Creating immersive digital experiences that deepen audience connections through personalization, gamification, and interactive content.',
     proficiency: 97,
-    image: '/images/expertise-fan.jpg',
+    image: 'https://cdn.pixabay.com/photo/2016/11/29/03/53/athletes-1867185_1280.jpg',
     applications: [
       'Second Screen Experiences',
       'Augmented Reality Activation',
@@ -52,7 +52,7 @@ const expertiseAreas = [
     title: 'Data Architecture',
     description: 'Designing comprehensive data ecosystems that convert information into actionable insights for strategic advantage.',
     proficiency: 93,
-    image: '/images/expertise-data.jpg',
+    image: 'https://cdn.pixabay.com/photo/2018/01/17/20/22/analytics-3088958_1280.jpg',
     applications: [
       'Performance Metrics Framework',
       'Centralized Data Warehousing',
