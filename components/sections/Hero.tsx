@@ -185,7 +185,7 @@ const Hero = () => {
               >
                 Launch Your Legacy
               </GradientButton>
-              
+
           </motion.div>
           
           {/* 3D Animated Logo */}
