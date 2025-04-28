@@ -127,7 +127,7 @@ const caseStudiesData: CaseStudy[] = [
       author: "Scott Heart",
       position: "Head of Performance"
     },
-    image: '/images/case-studies/performance-case.jpg'
+    image: '/images/case-study-performance.jpg'
   },
   {
     id: 'technology-transformation',
@@ -189,7 +189,7 @@ const caseStudiesData: CaseStudy[] = [
       author: "Sarah Williams",
       position: "Chief Technical Officer"
     },
-    image: '/images/case-studies/tech-case.jpg'
+    image: '/images/case-study-technology.jpg'
   },
   {
     id: 'fan-engagement',
@@ -251,12 +251,12 @@ const caseStudiesData: CaseStudy[] = [
       author: "Michael Thompson",
       position: "VP of Fan Experience"
     },
-    image: '/images/case-studies/fan-case.jpg'
+    image: '/images/case-study-fan-engagement.jpg'
   }
 ];
 
-// Filter categories
-const categories = ['All', 'Performance', 'Technology', 'Fan Engagement', 'Commercial'];
+// Filter categories - Commercial category removed
+const categories = ['All', 'Performance', 'Technology', 'Fan Engagement'];
 
 const CaseStudies: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -437,10 +437,14 @@ const CaseStudies: React.FC = () => {
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.4 }}
                     >
-                      {/* This would be replaced with actual images */}
-                      <div className="w-full h-full bg-gradient-to-r from-orange-600/20 to-yellow-400/20 flex items-center justify-center">
-                        <span className="text-orange-500 text-lg font-bold">[Case Study Image]</span>
-                      </div>
+                      {/* Case study image */}
+                      <Image
+                        src={caseStudy.image}
+                        alt={caseStudy.title}
+                        width={500}
+                        height={300}
+                        className="w-full h-full object-cover"
+                      />
                     </motion.div>
                     <div className="absolute bottom-4 left-4 z-20">
                       <span className="px-3 py-1 bg-orange-500 text-white text-xs font-medium rounded-full">

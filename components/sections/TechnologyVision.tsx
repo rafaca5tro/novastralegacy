@@ -1,9 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import SectionHeading from '../ui/SectionHeading';
 import GlassCard from '../ui/GlassCard';
-import Image from 'next/image';
 
 interface TechCategory {
   id: string;
@@ -15,7 +14,7 @@ interface TechCategory {
 interface Technology {
   id: string;
   name: string;
-  icon: string;
+  iconUrl: string;
   description: string;
   useCases: string[];
   level: 'core' | 'emerging' | 'experimental';
@@ -31,7 +30,7 @@ const techCategories: TechCategory[] = [
       {
         id: 'python',
         name: 'Python',
-        icon: '/images/tech/python.svg',
+        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
         description: 'Our primary language for data processing, analytics, and machine learning implementations.',
         useCases: [
           'Athlete performance prediction models',
@@ -43,7 +42,7 @@ const techCategories: TechCategory[] = [
       {
         id: 'tensorflow',
         name: 'TensorFlow',
-        icon: '/images/tech/tensorflow.svg',
+        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg',
         description: 'Deep learning framework used for complex pattern recognition and predictive modeling.',
         useCases: [
           'Movement pattern analysis',
@@ -55,7 +54,7 @@ const techCategories: TechCategory[] = [
       {
         id: 'tableau',
         name: 'Tableau',
-        icon: '/images/tech/tableau.svg',
+        iconUrl: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tableau.svg',
         description: 'Interactive data visualization tool enabling stakeholders to explore insights intuitively.',
         useCases: [
           'Performance dashboards',
@@ -67,7 +66,7 @@ const techCategories: TechCategory[] = [
       {
         id: 'snowflake',
         name: 'Snowflake',
-        icon: '/images/tech/snowflake.svg',
+        iconUrl: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/snowflake.svg',
         description: 'Cloud data platform providing scalable storage and processing capabilities for large datasets.',
         useCases: [
           'Centralized data warehousing',
@@ -79,7 +78,7 @@ const techCategories: TechCategory[] = [
       {
         id: 'dbt',
         name: 'dbt',
-        icon: '/images/tech/dbt.svg',
+        iconUrl: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/dbt.svg',
         description: 'Data transformation tool that enables analytics engineers to transform data in their warehouse efficiently.',
         useCases: [
           'Standardizing metrics definitions',
@@ -98,7 +97,7 @@ const techCategories: TechCategory[] = [
       {
         id: 'react',
         name: 'React',
-        icon: '/images/tech/react.svg',
+        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
         description: 'JavaScript library for building interactive user interfaces with reusable components.',
         useCases: [
           'Coaching staff dashboards',
@@ -110,7 +109,7 @@ const techCategories: TechCategory[] = [
       {
         id: 'flutter',
         name: 'Flutter',
-        icon: '/images/tech/flutter.svg',
+        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg',
         description: 'Cross-platform UI toolkit for building natively compiled applications from a single codebase.',
         useCases: [
           'Athlete mobile apps',
@@ -122,7 +121,7 @@ const techCategories: TechCategory[] = [
       {
         id: 'node',
         name: 'Node.js',
-        icon: '/images/tech/nodejs.svg',
+        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
         description: 'JavaScript runtime for building scalable network applications and APIs.',
         useCases: [
           'Real-time data processing',
@@ -134,7 +133,7 @@ const techCategories: TechCategory[] = [
       {
         id: 'graphql',
         name: 'GraphQL',
-        icon: '/images/tech/graphql.svg',
+        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg',
         description: 'API query language enabling clients to request exactly the data they need.',
         useCases: [
           'Customizable analytics APIs',
@@ -153,7 +152,7 @@ const techCategories: TechCategory[] = [
       {
         id: 'aws',
         name: 'AWS',
-        icon: '/images/tech/aws.svg',
+        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg',
         description: 'Comprehensive cloud platform with a wide range of services for building sophisticated applications.',
         useCases: [
           'Scalable infrastructure',
@@ -165,7 +164,7 @@ const techCategories: TechCategory[] = [
       {
         id: 'kubernetes',
         name: 'Kubernetes',
-        icon: '/images/tech/kubernetes.svg',
+        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg',
         description: 'Container orchestration system for automating application deployment, scaling, and management.',
         useCases: [
           'Microservices deployment',
@@ -177,7 +176,7 @@ const techCategories: TechCategory[] = [
       {
         id: 'terraform',
         name: 'Terraform',
-        icon: '/images/tech/terraform.svg',
+        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg',
         description: 'Infrastructure as code tool for building, changing, and versioning infrastructure safely and efficiently.',
         useCases: [
           'Consistent environments',
@@ -196,7 +195,7 @@ const techCategories: TechCategory[] = [
       {
         id: 'ar-vr',
         name: 'AR/VR',
-        icon: '/images/tech/ar-vr.svg',
+        iconUrl: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/oculus.svg',
         description: 'Immersive technologies that blend digital content with the physical world or create fully virtual environments.',
         useCases: [
           'Tactical visualization for coaches',
@@ -208,7 +207,7 @@ const techCategories: TechCategory[] = [
       {
         id: 'computer-vision',
         name: 'Computer Vision',
-        icon: '/images/tech/computer-vision.svg',
+        iconUrl: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/opencv.svg',
         description: 'AI systems that can analyze and understand visual information from cameras and videos.',
         useCases: [
           'Automated performance analysis',
@@ -220,7 +219,7 @@ const techCategories: TechCategory[] = [
       {
         id: 'wearable-tech',
         name: 'Wearable Tech',
-        icon: '/images/tech/wearable.svg',
+        iconUrl: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/fitbit.svg',
         description: 'Devices that can be worn to collect biometric data and provide real-time feedback.',
         useCases: [
           'Load management systems',
@@ -232,7 +231,7 @@ const techCategories: TechCategory[] = [
       {
         id: 'blockchain',
         name: 'Blockchain',
-        icon: '/images/tech/blockchain.svg',
+        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitcoin/bitcoin-original.svg',
         description: 'Distributed ledger technology enabling secure, transparent, and tamper-proof record-keeping.',
         useCases: [
           'Fan token ecosystems',
@@ -575,7 +574,12 @@ const TechnologyVision: React.FC = () => {
               <GlassCard className="h-full flex flex-col overflow-hidden">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-orange-600/20 to-yellow-400/20 flex items-center justify-center mr-3">
-                    <div className="text-orange-500 text-xl">[Icon]</div>
+                    <img 
+                      src={tech.iconUrl} 
+                      alt={`${tech.name} icon`} 
+                      className="w-8 h-8"
+                      style={{ filter: 'invert(1)' }} // Invert non-colored icons to make them white
+                    />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-white">{tech.name}</h3>
@@ -754,7 +758,12 @@ const TechnologyVision: React.FC = () => {
                 <div className="p-6">
                   <div className="flex items-center mb-6">
                     <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-orange-600/20 to-yellow-400/20 flex items-center justify-center mr-4">
-                      <div className="text-orange-500 text-2xl">[Icon]</div>
+                      <img 
+                        src={selectedTech.iconUrl} 
+                        alt={`${selectedTech.name} icon`} 
+                        className="w-10 h-10"
+                        style={{ filter: 'invert(1)' }}
+                      />
                     </div>
                     <div>
                       <span className={`text-sm px-3 py-1 rounded-full ${getLevelColor(selectedTech.level)}`}>
