@@ -122,21 +122,21 @@ const categories = [
     id: 'digital', 
     title: 'Digital Transformation Strategy', 
     description: 'Comprehensive frameworks for adopting cutting-edge technologies that revolutionize sports operations and experiences.',
-    image: '/images/digital-transformation.jpg',
+    image: 'https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/digital-transformation.jpg',
     color: 'from-blue-500/20 to-novastra-orange/20'
   },
   { 
     id: 'revenue', 
     title: 'Revenue & Fan Engagement', 
     description: 'Innovative platforms and experiences that deepen audience connections while creating sustainable commercial growth.',
-    image: '/images/fan-engagement.jpg',
+    image: 'https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/fan-engagement.jpg',
     color: 'from-novastra-orange/20 to-purple-500/20'
   },
   { 
     id: 'legacy', 
     title: 'Legacy & Brand Development', 
     description: 'Strategic approaches to building enduring sports brands that transcend traditional boundaries and timelines.',
-    image: '/images/legacy-development.jpg',
+    image: 'https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/legacy-development.jpg',
     color: 'from-novastra-gold/20 to-novastra-orange/20'
   }
 ];
@@ -339,7 +339,7 @@ const Services = () => {
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="rounded-lg overflow-hidden relative group">
                               <Image
-                                src="/images/nft-example-1.jpg"
+                                src="https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/nft-example-1.png"
                                 alt="Sports NFT Example"
                                 width={300}
                                 height={300}
@@ -351,7 +351,7 @@ const Services = () => {
                             </div>
                             <div className="rounded-lg overflow-hidden relative group">
                               <Image
-                                src="/images/nft-example-2.jpg"
+                                src="https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/nft-example-2.png"
                                 alt="Sports NFT Example"
                                 width={300}
                                 height={300}
@@ -369,7 +369,7 @@ const Services = () => {
                         <div className="bg-gradient-to-r from-black/50 to-black/30 rounded-xl p-6">
                           <h4 className="font-bold mb-4 text-xl">Brand Architecture Framework</h4>
                           <Image
-                            src="/images/brand-architecture.jpg"
+                            src="https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/brand-architecture.jpg"
                             alt="Brand Architecture Framework"
                             width={600}
                             height={400}
