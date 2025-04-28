@@ -44,12 +44,11 @@ const Footer = () => {
           <motion.div variants={itemVariants} className="md:col-span-2">
             <Link href="/" className="inline-block mb-6">
               <Image 
-                src="https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/novastra-logo.png" 
+                src="/images/novastra-logo.png"
                 alt="Novastra Legacy" 
                 width={180} 
                 height={50} 
                 className="h-14 w-auto object-contain"
-                unoptimized
               />
             </Link>
             <p className="text-novastra-beige opacity-80 max-w-md">
@@ -142,7 +141,7 @@ const Footer = () => {
           className="mt-12 pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center"
         >
           <p className="text-sm text-novastra-beige opacity-70">
-             {currentYear} Novastra Legacy℠. 
+            © {currentYear} Novastra Legacy℠. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/privacy-policy" className="text-sm text-novastra-beige opacity-70 hover:text-novastra-orange hover:opacity-100 transition-colors duration-300">

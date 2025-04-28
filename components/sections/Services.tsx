@@ -122,21 +122,21 @@ const categories = [
     id: 'digital', 
     title: 'Digital Transformation Strategy', 
     description: 'Comprehensive frameworks for adopting cutting-edge technologies that revolutionize sports operations and experiences.',
-    image: 'https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/digital-transformation.png',
+    image: '/images/digital-transformation.png',
     color: 'from-blue-500/20 to-novastra-orange/20'
   },
   { 
     id: 'revenue', 
     title: 'Revenue & Fan Engagement', 
     description: 'Innovative platforms and experiences that deepen audience connections while creating sustainable commercial growth.',
-    image: 'https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/fan-engagement.png',
+    image: '/images/fan-engagement.png',
     color: 'from-novastra-orange/20 to-purple-500/20'
   },
   { 
     id: 'legacy', 
     title: 'Legacy & Brand Development', 
     description: 'Strategic approaches to building enduring sports brands that transcend traditional boundaries and timelines.',
-    image: 'https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/legacy-development.png',
+    image: '/images/legacy-development.png',
     color: 'from-novastra-gold/20 to-novastra-orange/20'
   }
 ];
@@ -324,12 +324,11 @@ const Services = () => {
                             </div>
                           </div>
                           <Image
-                            src="https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/AIService.png"
+                            src="/images/AIService.png"
                             alt="AI Implementation Framework"
                             width={600}
                             height={300}
                             className="rounded-lg w-full object-cover"
-                            unoptimized
                           />
                         </div>
                       )}
@@ -340,12 +339,11 @@ const Services = () => {
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="rounded-lg overflow-hidden relative group">
                               <Image
-                                src="https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/nft-example-1.png"
+                                src="/images/nft-example-1.png"
                                 alt="Sports NFT Example"
                                 width={300}
                                 height={300}
                                 className="w-full object-cover transform transition-transform group-hover:scale-110"
-                                unoptimized
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-3">
                                 <span className="text-sm font-medium">Athlete Collectible Series</span>
@@ -353,12 +351,11 @@ const Services = () => {
                             </div>
                             <div className="rounded-lg overflow-hidden relative group">
                               <Image
-                                src="https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/nft-example-2.png"
+                                src="/images/nft-example-2.png"
                                 alt="Sports NFT Example"
                                 width={300}
                                 height={300}
                                 className="w-full object-cover transform transition-transform group-hover:scale-110"
-                                unoptimized
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-3">
                                 <span className="text-sm font-medium">Exclusive Access Tokens</span>
@@ -372,12 +369,11 @@ const Services = () => {
                         <div className="bg-gradient-to-r from-black/50 to-black/30 rounded-xl p-6">
                           <h4 className="font-bold mb-4 text-xl">Brand Architecture Framework</h4>
                           <Image
-                            src="https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/brand-architecture.png"
+                            src="/images/brand-architecture.png"
                             alt="Brand Architecture Framework"
                             width={600}
                             height={400}
                             className="rounded-lg w-full object-cover mb-4"
-                            unoptimized
                           />
                           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
                             <div className="p-3 bg-black/30 rounded-lg">

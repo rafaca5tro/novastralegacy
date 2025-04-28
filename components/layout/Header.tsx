@@ -101,13 +101,12 @@ const Header: React.FC<HeaderProps> = ({ scrolled }) => {
         <motion.div variants={navItemVariants} className="relative z-10">
           <Link href="/" className="block">
             <Image 
-              src="https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/novastra-logo.png" 
+              src="/images/novastra-logo.png"
               alt="Novastra Legacy" 
               width={160} 
               height={48} 
               className="h-12 w-auto object-contain transition-opacity hover:opacity-80"
               priority
-              unoptimized
             />
           </Link>
         </motion.div>

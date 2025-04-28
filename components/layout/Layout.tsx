@@ -15,7 +15,7 @@ const Layout: React.FC<LayoutProps> = ({
   children, 
   title = 'Novastra Legacy - Strategic Digital Transformation for Sports Innovators',
   description = 'Novastra Legacy harnesses AI, blockchain, and automation to elevate athletes into global icons, empower clubs with cutting-edge strategies, and transform federations into digital pioneers.',
-  ogImage = '/images/novastra-og-image.jpg'
+  ogImage = '/images/novastra-logo.png' // Updated to use novastra-logo.png as a fallback
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [scrolled, setScrolled] = useState(false);
