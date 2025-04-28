@@ -324,11 +324,12 @@ const Services = () => {
                             </div>
                           </div>
                           <Image
-                            src="images/AIService.png"
+                            src="https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/AIService.png"
                             alt="AI Implementation Framework"
                             width={600}
                             height={300}
                             className="rounded-lg w-full object-cover"
+                            unoptimized
                           />
                         </div>
                       )}
@@ -344,6 +345,7 @@ const Services = () => {
                                 width={300}
                                 height={300}
                                 className="w-full object-cover transform transition-transform group-hover:scale-110"
+                                unoptimized
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-3">
                                 <span className="text-sm font-medium">Athlete Collectible Series</span>
@@ -356,6 +358,7 @@ const Services = () => {
                                 width={300}
                                 height={300}
                                 className="w-full object-cover transform transition-transform group-hover:scale-110"
+                                unoptimized
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-3">
                                 <span className="text-sm font-medium">Exclusive Access Tokens</span>
@@ -374,6 +377,7 @@ const Services = () => {
                             width={600}
                             height={400}
                             className="rounded-lg w-full object-cover mb-4"
+                            unoptimized
                           />
                           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
                             <div className="p-3 bg-black/30 rounded-lg">
