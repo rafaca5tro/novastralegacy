@@ -122,21 +122,21 @@ const categories = [
     id: 'digital', 
     title: 'Digital Transformation Strategy', 
     description: 'Comprehensive frameworks for adopting cutting-edge technologies that revolutionize sports operations and experiences.',
-    image: 'https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/digital-transformation.jpg',
+    image: 'https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/digital-transformation.png',
     color: 'from-blue-500/20 to-novastra-orange/20'
   },
   { 
     id: 'revenue', 
     title: 'Revenue & Fan Engagement', 
     description: 'Innovative platforms and experiences that deepen audience connections while creating sustainable commercial growth.',
-    image: 'https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/fan-engagement.jpg',
+    image: 'https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/fan-engagement.png',
     color: 'from-novastra-orange/20 to-purple-500/20'
   },
   { 
     id: 'legacy', 
     title: 'Legacy & Brand Development', 
     description: 'Strategic approaches to building enduring sports brands that transcend traditional boundaries and timelines.',
-    image: 'https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/legacy-development.jpg',
+    image: 'https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/legacy-development.png',
     color: 'from-novastra-gold/20 to-novastra-orange/20'
   }
 ];
@@ -372,7 +372,7 @@ const Services = () => {
                         <div className="bg-gradient-to-r from-black/50 to-black/30 rounded-xl p-6">
                           <h4 className="font-bold mb-4 text-xl">Brand Architecture Framework</h4>
                           <Image
-                            src="https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/brand-architecture.jpg"
+                            src="https://raw.githubusercontent.com/rafaca5tro/novastralegacy/main/images/brand-architecture.png"
                             alt="Brand Architecture Framework"
                             width={600}
                             height={400}
